@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Sơ đồ kiến thức: 🧠 Điều Hòa Hô Hấp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    <script>
+    (function () {
+        let _orig = null, _mm = null;
+        Object.defineProperty(window, 'markmap', {
+            configurable: true,
+            get() { return _orig; },
+            set(val) {
+                _orig = val;
+                if (val && val.Markmap && !val.Markmap.__patched) {
+                    const origCreate = val.Markmap.create;
+                    val.Markmap.create = function (svg, opts, data) {
+                        opts = opts || {};
+                        opts.scrollForPan = false;
+                        const mm = origCreate.call(val.Markmap, svg, opts, data);
+                        _mm = mm; return mm;
+                    };
+                    val.Markmap.__patched = true;
+                }
+            }
+        });
+        window._getMM = () => _mm;
+    })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17.0"></script>
+    <style>
+        :root {
+            --primary: #dc2626;
+            --bg: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.85);
+            --border: rgba(0, 0, 0, 0.05);
+        }
+        body { margin: 0; padding: 0; min-height: 100vh; display: flex; flex-direction: column; font-family: 'Inter', sans-serif; background: var(--bg); color: #0f172a; }
+        .header { 
+            padding: 24px; text-align: center; 
+            background: var(--glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100;
+        }
+        .markmap { flex-grow: 1; width: 100%; height: 80vh; padding: 20px; box-sizing: border-box; }
+        h2 { margin: 0; font-family: 'Outfit', sans-serif; font-size: 1.5rem; color: var(--primary); letter-spacing: -0.02em; }
+        p { font-size: 0.85rem; color: #64748b; margin-top: 4px; }
+        .toolbar { display:flex; gap:10px; justify-content:center; margin-top:16px; }
+        .tool-btn { 
+            padding: 8px 16px; border-radius: 10px; border: 1px solid #e2e8f0; 
+            background: #fff; color: #475569; font-size: 13px; font-weight: 600; 
+            cursor: pointer; transition: all 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .tool-btn:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-1px); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>🧠 Điều Hòa Hô Hấp</h2>
+        <p>Phóng to/Thu nhỏ bằng con lăn. Kéo để di chuyển. Click chấm tròn để thu gọn nhánh.</p>
+        <div class="toolbar">
+            <button class="tool-btn" onclick="collapseAll()">➖ Thu gọn tất cả</button>
+            <button class="tool-btn" onclick="expandAll()">➕ Mở rộng tất cả</button>
+            <button class="tool-btn" onclick="fitView()">🎯 Căn giữa</button>
+        </div>
+    </div>
+    <div class="markmap">
+<script type="text/template">
+# Bài 18. Điều hòa hô hấp
+TS.BS. Đặng Huỳnh Anh Thư
+
+## MỤC TIÊU HỌC TẬP
+1. Mô tả các trung tâm hô hấp ở hành não và cầu não.
+2. Giải thích cơ chế điều hòa hô hấp bằng hóa học (CO2, H+, O2).
+3. Phân tích vai trò của các hóa thụ quan trung ương và ngoại vi.
+4. Trình bày các phản xạ điều hòa hô hấp (Phản xạ Hering-Breuer, phản xạ từ thụ thể căng giãn).
+
+## 1. TRUNG TÂM HÔ HẤP
+Nằm ở thân não, điều khiển nhịp điệu hô hấp tự động.
+
+### 1.1 Các nhóm nơ-ron hô hấp
+- **Nhóm hô hấp lưng (DRG - Hành não)**: Quy định nhịp hô hấp cơ bản. Nhận tín hiệu từ dây X và dây IX. Phát xung "dốc" gây hít vào.
+- **Nhóm hô hấp bụng (VRG - Hành não)**: Hoạt động khi hô hấp gắng sức (cả hít vào và thở ra gắng sức).
+- **Trung tâm điều chỉnh nhịp (Pneumotaxic center - Cầu não)**: Giới hạn thời gian hít vào $\to$ Tăng tần số thở. Nếu trung tâm này bị ức chế, nhịp thở sẽ chậm và sâu.
+
+## 2. ĐIỀU HÒA BẰNG CƠ CHẾ HÓA HỌC
+Đây là cơ chế quan trọng nhất để duy trì nồng độ khí máu ổn định.
+
+### 2.1 Hóa thụ quan trung ương (Hành não)
+- Rất nhạy cảm với sự thay đổi nồng độ **H+** trong dịch não tủy.
+- **Cơ chế**: CO2 khuếch tán qua hàng rào máu não $\to$ Kết hợp nước tạo H+ $\to$ Kích thích mạnh trung tâm hô hấp $\to$ **Tăng thông khí**.
+- *Lưu ý*: H+ trong máu không trực tiếp đi qua hàng rào máu não được, chỉ có CO2 đi qua rồi mới tạo H+ tại chỗ.
+
+### 2.2 Hóa thụ quan ngoại vi (Xoang cảnh và Quai chủ)
+- Nhạy cảm với sự giảm **pO2** máu ($PaO_2 < 60$ mmHg).
+- Gửi tín hiệu về hành não qua dây IX và dây X $\to$ Tăng thông khí để lấy thêm oxy.
+
+## 3. CÁC PHẢN XẠ ĐIỀU HÒA KHÁC
+### 3.1 Phản xạ Hering - Breuer (Phản xạ căng phổi)
+- Khi phổi giãn quá mức $\to$ Kích thích các thụ thể căng giãn (Stretch receptors) $\to$ Gửi tín hiệu ức chế hít vào $\to$ Ngăn chặn sự căng phế nang quá mức (thường chỉ kích hoạt khi TV > 1.5 lít).
+
+### 3.2 Sự điều hòa hô hấp khi vận động
+- Nhịp thở tăng ngay lập tức khi bắt đầu vận động (do tín hiệu từ vỏ não và các thụ thể cơ khớp) trước cả khi nồng độ khí máu thay đổi.
+
+### 3.3 Các yếu tố khác
+- **Nhiệt độ**: Tăng nhiệt độ làm tăng nhịp thở.
+- **Cảm xúc**: Lo lắng, sợ hãi (qua hệ limbic) có thể làm thay đổi nhịp hô hấp.
+- **Phản xạ nuốt**: Ngừng thở khi nuốt để tránh sặc thức ăn vào đường thở.
+
+</script>
+    </div>
+<script>
+function foldNode(n,f){if(n.children&&n.children.length){n.payload=n.payload||{};n.payload.fold=f;n.children.forEach(c=>foldNode(c,f));}}
+function collapseAll(){const mm=window._getMM();if(!mm)return;const r=mm.state.data;if(r&&r.children){r.children.forEach(c=>foldNode(c,1));mm.setData(r);setTimeout(()=>mm.fit(),300);}}
+function expandAll(){const mm=window._getMM();if(!mm)return;foldNode(mm.state.data,0);mm.setData(mm.state.data);setTimeout(()=>mm.fit(),300);}
+function fitView(){const mm=window._getMM();if(mm)mm.fit();}
+</script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Sơ đồ kiến thức: 🍩 Tiêu Hóa Ruột Non</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    <script>
+    (function () {
+        let _orig = null, _mm = null;
+        Object.defineProperty(window, 'markmap', {
+            configurable: true,
+            get() { return _orig; },
+            set(val) {
+                _orig = val;
+                if (val && val.Markmap && !val.Markmap.__patched) {
+                    const origCreate = val.Markmap.create;
+                    val.Markmap.create = function (svg, opts, data) {
+                        opts = opts || {};
+                        opts.scrollForPan = false;
+                        const mm = origCreate.call(val.Markmap, svg, opts, data);
+                        _mm = mm; return mm;
+                    };
+                    val.Markmap.__patched = true;
+                }
+            }
+        });
+        window._getMM = () => _mm;
+    })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17.0"></script>
+    <style>
+        :root {
+            --primary: #dc2626;
+            --bg: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.85);
+            --border: rgba(0, 0, 0, 0.05);
+        }
+        body { margin: 0; padding: 0; min-height: 100vh; display: flex; flex-direction: column; font-family: 'Inter', sans-serif; background: var(--bg); color: #0f172a; }
+        .header { 
+            padding: 24px; text-align: center; 
+            background: var(--glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100;
+        }
+        .markmap { flex-grow: 1; width: 100%; height: 80vh; padding: 20px; box-sizing: border-box; }
+        h2 { margin: 0; font-family: 'Outfit', sans-serif; font-size: 1.5rem; color: var(--primary); letter-spacing: -0.02em; }
+        p { font-size: 0.85rem; color: #64748b; margin-top: 4px; }
+        .toolbar { display:flex; gap:10px; justify-content:center; margin-top:16px; }
+        .tool-btn { 
+            padding: 8px 16px; border-radius: 10px; border: 1px solid #e2e8f0; 
+            background: #fff; color: #475569; font-size: 13px; font-weight: 600; 
+            cursor: pointer; transition: all 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .tool-btn:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-1px); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>🍩 Tiêu Hóa Ruột Non</h2>
+        <p>Phóng to/Thu nhỏ bằng con lăn. Kéo để di chuyển. Click chấm tròn để thu gọn nhánh.</p>
+        <div class="toolbar">
+            <button class="tool-btn" onclick="collapseAll()">➖ Thu gọn tất cả</button>
+            <button class="tool-btn" onclick="expandAll()">➕ Mở rộng tất cả</button>
+            <button class="tool-btn" onclick="fitView()">🎯 Căn giữa</button>
+        </div>
+    </div>
+    <div class="markmap">
+<script type="text/template">
+# Bài 23. Tiêu hóa và hấp thu ở ruột non
+BS. Nguyễn Bình Thư, TS.BS. Đặng Huỳnh Anh Thư
+
+## MỤC TIÊU HỌC TẬP
+1. Trình bày các cử động cơ học và cơ chế điều hòa tại ruột non.
+2. Mô tả thành phần, tác dụng của dịch tụy, dịch mật và dịch ruột.
+3. Giải thích cơ chế hấp thu các dưỡng chất (Glucid, Protid, Lipid) và điện giải.
+4. Phân tích vai trò của muối mật trong việc nhũ tương hóa mỡ và tạo hạt Micelle.
+
+## 1. HOẠT ĐỘNG CƠ HỌC
+Ruột non là nơi diễn ra các hoạt động nhào trộn và đẩy thức ăn quan trọng nhất.
+
+### 1.1 Các loại cử động
+- **Co bóp phân đoạn (Segmentation)**:
+  - Là cử động chính nhằm nhào trộn dưỡng trấp với dịch tiêu hóa.
+  - Tần số: 12 lần/phút ở tá tràng, giảm dần còn 8 lần/phút ở hồi tràng.
+- **Nhu động (Peristalsis)**:
+  - Đẩy dưỡng trấp chuyển dịch dọc theo ruột non về phía van hồi manh tràng.
+  - Tốc độ rất chậm: ~1 cm/phút. Cần 3-5 giờ để dưỡng trấp đi hết ruột non.
+- **Phức hợp vận động di chuyển (MMC)**: Xảy ra lúc đói, làm sạch ruột khỏi các mảnh vụn thức ăn và vi khuẩn.
+- **Vận động của nhung mao**: Giúp trộn lẫn dịch kẽ quanh nhung mao và đẩy dịch bạch huyết.
+
+### 1.2 Điều hòa cơ học
+- **Phản xạ dạ dày - ruột**: Sự căng dạ dày làm tăng nhu động ruột non.
+- **Hormon**: Gastrin, CCK, Insulin, Serotonin làm tăng vận động. Secretin và Glucagon làm giảm vận động.
+
+## 2. HOẠT ĐỘNG BÀI TIẾT DỊCH TIÊU HÓA
+### 2.1 Dịch Tụy
+- **Enzyme tiêu hóa Protein**: Trypsin, Chymotrypsin (cắt protein thành peptid), Carboxypolypeptidase (cắt peptid thành acid amin). Chúng được tiết dưới dạng tiền men và được **Enterokinase** của ruột hoạt hóa.
+- **Enzyme tiêu hóa Glucid**: Amylase tụy (thủy phân tinh bột thành maltose).
+- **Enzyme tiêu hóa Lipid**: Lipase tụy, Cholesterol esterase, Phospholipase.
+- **Dịch kiềm (Bicarbonate)**: Do các tế bào ống bài tiết để trung hòa acid dạ dày.
+
+### 2.2 Dịch Mật (Tạo ra ở gan, dự trữ ở túi mật)
+- **Muối mật (Muối Natri và Kali của acid mật)**:
+  - **Nhũ tương hóa mỡ**: Giảm sức căng bề mặt hạt mỡ, chia nhỏ hạt mỡ $\to$ Tăng diện tích tiếp xúc cho men Lipase.
+  - **Tạo hạt Micelle**: Vận chuyển monoglyceride và acid béo đến bờ bàn chải tế bào niêm mạc ruột.
+  - **Tái hấp thu**: 94% muối mật được tái hấp thu tích cực ở hồi tràng (Tuần hoàn ruột - gan).
+
+### 2.3 Dịch Ruột
+- Tiết ra từ các tuyến Lieberkuhn và Brunner.
+- **Men bờ bàn chải**: Peptidase, Maltase, Isomaltase, Lactase, Sucrase, Lipase ruột.
+
+## 3. QUÁ TRÌNH HẤP THU (TẠI NIÊM MẠC RUỘT)
+### 3.1 Hấp thu Glucid
+- **Glucose và Galactose**: Đồng vận chuyển tích cực thứ phát với Na+ (qua SGLT).
+- **Fructose**: Khuếch tán hỗ trợ.
+
+### 3.2 Hấp thu Protein
+- Acid amin, Dipeptide, Tripeptide hấp thu qua cơ chế đồng vận chuyển với Na+ hoặc H+.
+
+### 3.3 Hấp thu Lipid
+- Acid béo và Monoglyceride khuếch tán vào tế bào $\to$ Tái tổng hợp Triglyceride $\to$ Kết hợp Protein tạo thành **Chylomicron** $\to$ Vào **mạch bạch huyết**.
+
+### 3.4 Hấp thu Nước và Điện giải
+- Nước hấp thu thụ động theo các chất hòa tan (thẩm thấu).
+- **Na+**: Tái hấp thu tích cực qua bơm Na-K-ATPase.
+- **Sắt (Fe)**: Hấp thu tại tá tràng (Fe2+ dễ hơn Fe3+).
+- **Calci (Ca2+)**: Hấp thu nhờ sự hỗ trợ của Vitamin D và hormone PTH.
+
+</script>
+    </div>
+<script>
+function foldNode(n,f){if(n.children&&n.children.length){n.payload=n.payload||{};n.payload.fold=f;n.children.forEach(c=>foldNode(c,f));}}
+function collapseAll(){const mm=window._getMM();if(!mm)return;const r=mm.state.data;if(r&&r.children){r.children.forEach(c=>foldNode(c,1));mm.setData(r);setTimeout(()=>mm.fit(),300);}}
+function expandAll(){const mm=window._getMM();if(!mm)return;foldNode(mm.state.data,0);mm.setData(mm.state.data);setTimeout(()=>mm.fit(),300);}
+function fitView(){const mm=window._getMM();if(mm)mm.fit();}
+</script>
+</body>
+</html>

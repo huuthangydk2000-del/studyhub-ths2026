@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Sơ đồ kiến thức: 🌀 Khái Quát Nội Tiết</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    <script>
+    (function () {
+        let _orig = null, _mm = null;
+        Object.defineProperty(window, 'markmap', {
+            configurable: true,
+            get() { return _orig; },
+            set(val) {
+                _orig = val;
+                if (val && val.Markmap && !val.Markmap.__patched) {
+                    const origCreate = val.Markmap.create;
+                    val.Markmap.create = function (svg, opts, data) {
+                        opts = opts || {};
+                        opts.scrollForPan = false;
+                        const mm = origCreate.call(val.Markmap, svg, opts, data);
+                        _mm = mm; return mm;
+                    };
+                    val.Markmap.__patched = true;
+                }
+            }
+        });
+        window._getMM = () => _mm;
+    })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17.0"></script>
+    <style>
+        :root {
+            --primary: #dc2626;
+            --bg: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.85);
+            --border: rgba(0, 0, 0, 0.05);
+        }
+        body { margin: 0; padding: 0; min-height: 100vh; display: flex; flex-direction: column; font-family: 'Inter', sans-serif; background: var(--bg); color: #0f172a; }
+        .header { 
+            padding: 24px; text-align: center; 
+            background: var(--glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100;
+        }
+        .markmap { flex-grow: 1; width: 100%; height: 80vh; padding: 20px; box-sizing: border-box; }
+        h2 { margin: 0; font-family: 'Outfit', sans-serif; font-size: 1.5rem; color: var(--primary); letter-spacing: -0.02em; }
+        p { font-size: 0.85rem; color: #64748b; margin-top: 4px; }
+        .toolbar { display:flex; gap:10px; justify-content:center; margin-top:16px; }
+        .tool-btn { 
+            padding: 8px 16px; border-radius: 10px; border: 1px solid #e2e8f0; 
+            background: #fff; color: #475569; font-size: 13px; font-weight: 600; 
+            cursor: pointer; transition: all 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .tool-btn:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-1px); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>🌀 Khái Quát Nội Tiết</h2>
+        <p>Phóng to/Thu nhỏ bằng con lăn. Kéo để di chuyển. Click chấm tròn để thu gọn nhánh.</p>
+        <div class="toolbar">
+            <button class="tool-btn" onclick="collapseAll()">➖ Thu gọn tất cả</button>
+            <button class="tool-btn" onclick="expandAll()">➕ Mở rộng tất cả</button>
+            <button class="tool-btn" onclick="fitView()">🎯 Căn giữa</button>
+        </div>
+    </div>
+    <div class="markmap">
+<script type="text/template">
+# Bài 13. Khái quát nội tiết & Hệ thống Thượng thận
+TS.BS. Lê Quốc Tuấn
+
+## MỤC TIÊU HỌC TẬP
+1. Trình bày đặc điểm chung và cơ chế tác động của Hormon.
+2. Mô tả cấu trúc và chức năng của trục Hạ đồi - Tuyến yên.
+3. Phân tích chi tiết các hormon vỏ và tủy thượng thận (Cortisol, Aldosterone, Catecholamine).
+4. Vận dụng điều hòa ngược (Feedback) trong hệ nội tiết.
+
+## 1. KHÁI QUÁT CHUNG
+- **Hormon**: Là những chất hóa học do một nhóm tế bào hoặc một tuyến bài tiết vào máu, được máu vận chuyển đến các tế bào ở mô đích và gây ra các tác dụng sinh lý.
+- **Phân loại theo bản chất hóa học**:
+  - **Dẫn xuất acid amin**: Catecholamine, hormon giáp ($T_3, T_4$).
+  - **Peptid & Protein**: Hormon hạ đồi, tuyến yên, insulin, glucagon, PTH.
+  - **Steroid (tan trong lipid)**: Hormon vỏ thượng thận, hormon sinh dục.
+
+## 2. HỆ THỐNG THƯỢNG THẬN (ADRENAL GLANDS)
+Tuyến thượng thận gồm 2 phần riêng biệt về nguồn gốc và chức năng: Vỏ (80%) và Tủy (20%).
+
+### 2.1 Vỏ thượng thận (Adrenal Cortex)
+Chia làm 3 lớp bài tiết các nhóm Steroid khác nhau từ Cholesterol:
+1. **Lớp cầu (ngoài cùng)**: Tiết **Aldosterone** (Minerallocorticoid).
+   - Tác dụng: Tái hấp thu Na+, bài tiết K+ tại ống thận.
+2. **Lớp bó (giữa)**: Tiết **Cortisol** (Glucocorticoid).
+   - **Tác dụng chuyển hóa**: Tăng tân tạo đường tại gan, tăng phân giải protein và lipid $\to$ Tăng đường huyết.
+   - **Tác dụng chống stress**: Giúp cơ thể chịu đựng các kích thích có hại.
+   - **Tác dụng chống viêm & dị ứng**: ức chế phospholipase A2, giảm giải phóng histamin.
+   - **Điều hòa**: Bởi trục CRH (Hạ đồi) $\to$ ACTH (Yên trước) $\to$ Cortisol. Ức chế ngược lại theo cơ chế feedback âm tính.
+3. **Lớp lưới (trong cùng)**: Tiết **Androgen** (DHEA).
+   - Tác dụng: Phát triển các tính trạng sinh dục phụ (lông nách, lông mu).
+
+### 2.2 Tủy thượng thận (Adrenal Medulla)
+Được coi như một hạch giao cảm biệt hóa.
+- **Hormon**: **Epinephrine** (Adrenaline - 80%) và **Norepinephrine** (20%).
+- **Tác dụng**: Chuẩn bị cho cơ thể phản ứng "Chiến đấu hay Bỏ chạy" (Fight or Flight).
+  - Tăng nhịp tim, tăng lực co bóp.
+  - Giãn phế quản, giãn đồng tử.
+  - Co mạch da và tiêu hóa, giãn mạch cơ xương.
+  - Tăng đường huyết và acid béo máu.
+
+## 3. TRỤC HẠ ĐỒI - TUYẾN YÊN
+- **Vùng hạ đồi**: Tiết các hormone giải phóng ($RH$) hoặc ức chế ($IH$): GHRH, GHIH, TRH, CRH, GnRH, PIH (Dopamine).
+- **Tuyến yên trước**: Sản xuất các hormone kích thích tuyến đích: GH, TSH, ACTH, FSH, LH, Prolactin.
+- **Tuyến yên sau**: Lưu trữ và giải phóng **ADH** (Giữ nước) và **Oxytocin** (Co tử cung, bài xuất sữa) từ các nhân vùng hạ đồi.
+
+</script>
+    </div>
+<script>
+function foldNode(n,f){if(n.children&&n.children.length){n.payload=n.payload||{};n.payload.fold=f;n.children.forEach(c=>foldNode(c,f));}}
+function collapseAll(){const mm=window._getMM();if(!mm)return;const r=mm.state.data;if(r&&r.children){r.children.forEach(c=>foldNode(c,1));mm.setData(r);setTimeout(()=>mm.fit(),300);}}
+function expandAll(){const mm=window._getMM();if(!mm)return;foldNode(mm.state.data,0);mm.setData(mm.state.data);setTimeout(()=>mm.fit(),300);}
+function fitView(){const mm=window._getMM();if(mm)mm.fit();}
+</script>
+</body>
+</html>

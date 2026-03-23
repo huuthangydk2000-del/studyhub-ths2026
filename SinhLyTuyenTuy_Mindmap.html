@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Sơ đồ kiến thức: 🍭 Tuyến Tụy Nội Tiết</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    <script>
+    (function () {
+        let _orig = null, _mm = null;
+        Object.defineProperty(window, 'markmap', {
+            configurable: true,
+            get() { return _orig; },
+            set(val) {
+                _orig = val;
+                if (val && val.Markmap && !val.Markmap.__patched) {
+                    const origCreate = val.Markmap.create;
+                    val.Markmap.create = function (svg, opts, data) {
+                        opts = opts || {};
+                        opts.scrollForPan = false;
+                        const mm = origCreate.call(val.Markmap, svg, opts, data);
+                        _mm = mm; return mm;
+                    };
+                    val.Markmap.__patched = true;
+                }
+            }
+        });
+        window._getMM = () => _mm;
+    })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17.0"></script>
+    <style>
+        :root {
+            --primary: #dc2626;
+            --bg: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.85);
+            --border: rgba(0, 0, 0, 0.05);
+        }
+        body { margin: 0; padding: 0; min-height: 100vh; display: flex; flex-direction: column; font-family: 'Inter', sans-serif; background: var(--bg); color: #0f172a; }
+        .header { 
+            padding: 24px; text-align: center; 
+            background: var(--glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100;
+        }
+        .markmap { flex-grow: 1; width: 100%; height: 80vh; padding: 20px; box-sizing: border-box; }
+        h2 { margin: 0; font-family: 'Outfit', sans-serif; font-size: 1.5rem; color: var(--primary); letter-spacing: -0.02em; }
+        p { font-size: 0.85rem; color: #64748b; margin-top: 4px; }
+        .toolbar { display:flex; gap:10px; justify-content:center; margin-top:16px; }
+        .tool-btn { 
+            padding: 8px 16px; border-radius: 10px; border: 1px solid #e2e8f0; 
+            background: #fff; color: #475569; font-size: 13px; font-weight: 600; 
+            cursor: pointer; transition: all 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .tool-btn:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-1px); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>🍭 Tuyến Tụy Nội Tiết</h2>
+        <p>Phóng to/Thu nhỏ bằng con lăn. Kéo để di chuyển. Click chấm tròn để thu gọn nhánh.</p>
+        <div class="toolbar">
+            <button class="tool-btn" onclick="collapseAll()">➖ Thu gọn tất cả</button>
+            <button class="tool-btn" onclick="expandAll()">➕ Mở rộng tất cả</button>
+            <button class="tool-btn" onclick="fitView()">🎯 Căn giữa</button>
+        </div>
+    </div>
+    <div class="markmap">
+<script type="text/template">
+# Bài 30. Tuyến tụy nội tiết
+TS.BS. Lê Quốc Tuấn
+
+## MỤC TIÊU HỌC TẬP
+1. Trình bày cấu tạo các tiểu đảo Langerhans và các loại tế bào bài tiết.
+2. Giải thích cơ chế tác dụng và điều hòa của Insulin trên chuyển hóa chất.
+3. Giải thích cơ chế tác dụng và điều hòa của Glucagon.
+4. Phân tích sinh lý bệnh học của bệnh Đái tháo đường (Typ 1 và Typ 2).
+
+## 1. CẤU TRÚC TIỂU ĐẢO LANGERHANS
+Tuyến tụy có hai chức năng: Ngoại tiết (tiết enzym tiêu hóa) và Nội tiết (chiếm 1-2% trọng lượng).
+- **Tế bào Alpha (25%)**: Tiết **Glucagon**.
+- **Tế bào Beta (60%)**: Tiết **Insulin** và Amylin.
+- **Tế bào Delta (10%)**: Tiết **Somatostatin** (ức chế cả insulin và glucagon).
+- **Tế bào PP (rất ít)**: Tiết Polypeptid tụy.
+
+## 2. INSULIN - HORMON CỦA SỰ DƯ THỪA NĂNG LƯỢNG
+Insulin là hormon duy nhất trong cơ thể có tác dụng làm hạ đường huyết.
+
+### 2.1 Tác dụng trên chuyển hóa Glucid
+- **Tại cơ bắp**: Tăng vận chuyển glucose vào tế bào cơ (qua kênh GLUT4).
+- **Tại gan**: 
+  - Tăng tổng hợp Glycogen dự trữ.
+  - Ức chế phân giải Glycogen và ức chế tân tạo đường.
+- **Tổng quát**: Làm giảm nồng độ glucose trong máu nhanh chóng.
+
+### 2.2 Tác dụng trên chuyển hóa Lipid
+- Tăng tổng hợp acid béo và vận chuyển đến mô mỡ để dự trữ dưới dạng Triglyceride.
+- Ức chế men Lipase tại mô mỡ $\to$ Ngăn chặn sự phân giải mỡ.
+- Thiếu insulin gây tăng nồng độ acid béo và cholesterol trong máu $\to$ Dễ gây xơ vữa động mạch.
+
+### 2.3 Tác dụng trên chuyển hóa Protein và Tăng trưởng
+- Tăng vận chuyển acid amin vào tế bào $\to$ Tăng tổng hợp protein.
+- Phối hợp với GH để thúc đẩy sự tăng trưởng của cơ thể.
+
+### 2.4 Điều hòa bài tiết
+- **Glucose máu tăng**: Là kích thích mạnh nhất (Glucose đi vào tế bào Beta $\to$ Đóng kênh K-ATP $\to$ Mở kênh Ca2+ $\to$ Giải phóng Insulin).
+- **Acid amin máu tăng**: Kích thích tiết Insulin.
+- **Hệ thần kinh**: Giao cảm (receptor Alpha-2) ức chế tiết; Phó giao cảm (Dây X) kích thích tiết.
+
+## 3. GLUCAGON - HORMON TĂNG ĐƯỜNG HUYẾT
+Glucagon có tác dụng ngược lại hoàn toàn với Insulin.
+- **Tác dụng tại gan**: 
+  - Phân giải cực mạnh Glycogen thành Glucose.
+  - Tăng tân tạo đường từ acid amin.
+- **Điều hòa**: Glucose máu giảm kích thích bài tiết Glucagon; Glucose máu tăng ức chế bài tiết.
+
+## 4. SINH LÝ BỆNH ĐÁI THÁO ĐƯỜNG
+- **Typ 1 (Lệ thuộc Insulin)**: Do hệ miễn dịch phá hủy tế bào Beta $\to$ Thiếu hoàn toàn Insulin. Đặc trưng bởi: Ăn nhiều, uống nhiều, tiểu nhiều, gầy nhanh.
+- **Typ 2 (Kháng Insulin)**: Thường gặp ở người béo phì, tế bào đích giảm nhạy cảm với Insulin.
+
+</script>
+    </div>
+<script>
+function foldNode(n,f){if(n.children&&n.children.length){n.payload=n.payload||{};n.payload.fold=f;n.children.forEach(c=>foldNode(c,f));}}
+function collapseAll(){const mm=window._getMM();if(!mm)return;const r=mm.state.data;if(r&&r.children){r.children.forEach(c=>foldNode(c,1));mm.setData(r);setTimeout(()=>mm.fit(),300);}}
+function expandAll(){const mm=window._getMM();if(!mm)return;foldNode(mm.state.data,0);mm.setData(mm.state.data);setTimeout(()=>mm.fit(),300);}
+function fitView(){const mm=window._getMM();if(mm)mm.fit();}
+</script>
+</body>
+</html>

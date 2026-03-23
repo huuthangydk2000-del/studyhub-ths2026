@@ -1,0 +1,86 @@
+# 🫀 Chức năng bơm máu của tim
+
+## 1. CHU CHUYỂN TIM
+Chu chuyển tim là trình tự các sự kiện điện não và cơ học từ cuối kỳ tâm thu này đến cuối kỳ tâm thu tiếp theo. Bơm vừa hút vừa đẩy.
+
+### 1.1 Tâm thu (Systole)
+- Tổng thời gian: **0.4 giây** (bao gồm nhĩ thu và thất thu).
+
+#### 1.1.1 Tâm nhĩ thu
+- Xảy ra ngay đỉnh **sóng P** trên ECG.
+- Thời gian: **0.1 giây**.
+- Chức năng: Co bóp đẩy thêm **30% lượng máu** cuối cùng xuống tâm thất (70% đã tự động xuống tâm thất trước đó).
+- Tạo ra **sóng a** trên đồ thị tĩnh mạch cảnh và **tiếng tim thứ tư (T4)** trên tâm thanh đồ (do máu dội vào vách thất).
+- Sau khi co, tâm nhĩ giãn ra nghỉ ngơi trong suốt **0.7 giây** còn lại.
+
+#### 1.1.2 Tâm thất thu
+- Bắt đầu sau phức bộ **QRS**.
+- Thời gian: **0.3 giây**.
+- **(1) Thời kỳ co đồng thể tích (Co đẳng trường):**
+  - Kéo dài: **0.05 giây**.
+  - Áp suất tăng vọt đóng chặt van hai lá và ba lá -> Sinh ra **tiếng tim thứ nhất (T1)**.
+  - Buồng thất là một *hộp kín hoàn toàn* (Van nhĩ thất đóng, van tổ chim chưa mở) -> Thể tích không đổi.
+- **(2) Thời kỳ bơm máu ra ngoài (Co đẳng trương):**
+  - Kéo dài: **0.25 giây**. Mở van tổ chim khi áp suất Thất Trái > ĐMC (**80 mmHg**), Thất Phải > ĐMP (**10 mmHg**).
+  - *Giai đoạn bơm nhanh:* Chiếm 1/3 thời gian nhưng bơm máu **70% lượng máu**. Đạt mức áp suất đỉnh Thất trái (**110 mmHg**) và Thất phải (**25 mmHg**).
+  - *Giai đoạn bơm chậm:* Chiếm 2/3 thời gian, bơm **30% lượng máu** còn lại. Cuối giai đoạn, áp suất động mạch cao hơn tâm thất -> Van tổ chim đóng -> **Tiếng tim thứ hai (T2)**.
+- **Thể tích nhát bóp (Stroke Volume - SV):** Là lượng máu tâm thất tống ra mỗi nhịp -> **70 - 90 mL**. Tồn đọng lại ở tâm thất **khoảng 350 mL**.
+
+### 1.2 Tâm trương (Diastole)
+- Kéo dài **0.5 giây**. Thời kì tim nghỉ ngơi toàn bộ cơ học.
+- **(1) Giai đoạn giãn đồng thể tích:** Thất bắt đầu dãn nhưng van tổ chim vừa đóng, van nhĩ thất chưa mở -> Buồng kín hoàn toàn. Tâm nhĩ đang tích máu.
+- **(2) Giai đoạn máu về tim:** Ngay khi áp suất Thất giảm thấp hơn áp suất Nhĩ -> Van nhĩ thất tự động mở bung:
+  - *Giai đoạn về nhanh:* 1/3 đầu tâm trương, **70% lượng máu** ạt xả thẳng xuống -> Gây ra **tiếng tim thứ ba (T3)** ở người trẻ bình thường.
+  - *Giai đoạn về chậm:* 1/3 giữa, chỉ 1 ít lượng máu tĩnh mạch rỉ trực tiếp đi thẳng xuống thất.
+  - *Giai đoạn tâm nhĩ thu:* 1/3 cuối, nhĩ bóp tống **30% lượng máu** chót.
+
+## 2. ÁP SUẤT VÀ ĐIỆN TÂM ĐỒ TRONG CHU CHUYỂN
+### 2.1 Trị số cực kì quan trọng của huyết động lý thuyết
+- **Tâm thất trái:** Tâm thu (**100-200 mmHg**) / Đầu tâm trương (**0 mmHg**) / Cuối tâm trương (**5-12 mmHg**).
+- **Tâm thất phải:** Tâm thu (**20-25 mmHg**) / Đầu tâm trương (**0 mmHg**) / Cuối tâm trương (**2-6 mmHg**) -> *"Áp suất thất phải bằng 1/7 áp suất thất trái"*.
+- **Tâm nhĩ áp suất tĩnh:** Nhĩ trái (**5-10 mmHg**), Nhĩ phải (**2-5 mmHg**).
+- **Động mạch phổi:** Thu (**20-25 mmHg**) / Trương (**10-15 mmHg**) / Trung bình (**15-20 mmHg**).
+- **Động mạch chủ:** Thu (**100-130 mmHg**) / Trương (**70-80 mmHg**) / Trung bình (**80-100 mmHg**).
+
+### 2.2 Tĩnh mạch đồ cảnh (Sóng nhĩ)
+- **Sóng a:** Do co tâm nhĩ (tăng 4-6mmHg ở nhĩ P, 7-8mmHg ở nhĩ T).
+- **Sóng c:** Tâm thất co ép làm phồng van nhĩ thất bật vào trong.
+- **Sóng v:** Cuối kỳ nhĩ trương, nhĩ đầy ắp máu. Sau khi vọt xuống thất tạo lỗ hổng làm đường biểu diễn tuột xuống tạo nét gồ.
+
+## 3. LƯỢNG GIÁ TIẾNG TIM THỰC HÀNH
+- **Tiếng T1:** Trầm, dài (*"bùm"*). Nghe rõ mỏm tim (đỉnh bờ dưới xương ức). Do sự kiện **đóng van nhĩ-thất** ở đầu thì thu thất.
+- **Tiếng T2:** Thanh, ngắn (*"tặc"*). Do sự kiện **đóng van tổ chim (ĐMC, ĐMP)** ở cuối thì thu thất.
+  - Tách đôi sinh lý A2-P2: Khi hít vào, máu về tim phải nhiều -> Thất phải tốn nhiều thời gian bóp -> Van ĐMP đóng trễ giãn cách so với van ĐMC.
+- **Tiếng T3, T4:** Thấy trên tâm thanh đồ chứ không nghe bằng ống nghe bình thường. Liên quan dãn thất quá mức (suy tim).
+
+## 4. CĂN BẢN VỀ CẤU TRÚC - CHỨC NĂNG
+- Cơ tâm thất phải quấn xoay 180 độ so với ngoại tâm, giúp làm hẹp toàn buồng tim và hẹp lỗ thông ép van.
+- Cơ tim hoạt động điện theo định luật **"Tất cả hoặc là không có gì"**. Vừa có tính hợp bào vừa giàu ti thể.
+
+### 4.1 Tiền tải (Preload)
+- Định nghĩa: Thể tích hoặc độ giãn của vách thất ngay TRƯỚC khi co bóp (còn gọi là **Thể tích cuối tâm trương**).
+- Bản chất: Liên quan mật thiết đến trương lực tính tĩnh mạch, máu đổ về nhĩ. Áp suất tĩnh mạch trung tâm càng cao, tiền tải càng tăng.
+
+### 4.2 Hậu tải (Afterload)
+- Định nghĩa: Sức cản của cột máu động mạch mà buồng thất BẮT BUỘC vượt qua để đẩy được van động mạch. (chính là **Áp suất động mạch khi van mở**).
+- Rối loạn: Hậu tải tăng quá ngưỡng -> Van ĐMC không bung được -> Co thắt rơi vào **Đẳng trường 100%** (tim xé hụt).
+
+### 4.3 Phân suất tống máu (Ejection Fraction - EF)
+- Tỉ lệ % Máu bơm đi / Máu tích lũy ở thì tâm trương. Dùng để đánh giá sức mạnh tính co bóp cơ học.
+
+## 5. CUNG LƯỢNG TIM (CARDIAC OUTPUT - CO)
+- Công thức tính: **CO = HR x SV** (Cung lượng tính bằng mL/phút = Nhịp * Thể tích nhát bóp).
+- **5.600 mL/phút** ở Nam, **4.900 mL/phút** ở Nữ. Bình kim 5 Lít.
+- **Tăng trong:** Lo lắng, kích thích (gấp đôi), vận động (+70%), ăn no, có thai.
+- **Giảm trong:** Nghỉ ngơi đột ngột chuyển thế đứng/ngồi, nhịp nhanh cạn, suy tim.
+
+### 5.1 Các phương pháp đo sinh lý
+#### 5.1.1 Nguyên lý pha loãng Fick
+- Cung lượng phân phối Oxy được đo trực tiếp đo qua nồng độ từ Phổi.
+- CO = V(O2) / (C_a - C_v)
+- Mạch phổi: 100% C O2 đ.mạch đo ở động mạch biên. C O2 t.mạch đo bằng cắm ống cực sâu mạch trộn (Swanz-Ganz tới động mạch phổi).
+
+#### 5.1.2 Các máy hỗ trợ:
+- Pha loãng màu cản quang (vẽ nhánh độ thanh thải nồng độ).
+- PiCCO nhiệt kế lạnh: Bơm nước lạnh ở đm Phổi, hút lưu nhiệt ở ĐMC. 
+- Siêu âm Doppler 2D (Tích phân luồng diện tích van).

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Sơ đồ kiến thức: Thiếu Máu Thiếu Sắt Trẻ Em</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    <script>
+    (function () {
+        let _orig = null, _mm = null;
+        Object.defineProperty(window, 'markmap', {
+            configurable: true,
+            get() { return _orig; },
+            set(val) {
+                _orig = val;
+                if (val && val.Markmap && !val.Markmap.__patched) {
+                    const origCreate = val.Markmap.create;
+                    val.Markmap.create = function (svg, opts, data) {
+                        opts = opts || {};
+                        opts.scrollForPan = false;
+                        const mm = origCreate.call(val.Markmap, svg, opts, data);
+                        _mm = mm; return mm;
+                    };
+                    val.Markmap.__patched = true;
+                }
+            }
+        });
+        window._getMM = () => _mm;
+    })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17.0"></script>
+    <style>
+        :root {
+            --primary: #dc2626;
+            --bg: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.85);
+            --border: rgba(0, 0, 0, 0.05);
+        }
+        body { margin: 0; padding: 0; min-height: 100vh; display: flex; flex-direction: column; font-family: 'Inter', sans-serif; background: var(--bg); color: #0f172a; }
+        .header { 
+            padding: 24px; text-align: center; 
+            background: var(--glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100;
+        }
+        .markmap { flex-grow: 1; width: 100%; height: 80vh; padding: 20px; box-sizing: border-box; }
+        h2 { margin: 0; font-family: 'Outfit', sans-serif; font-size: 1.5rem; color: var(--primary); letter-spacing: -0.02em; }
+        p { font-size: 0.85rem; color: #64748b; margin-top: 4px; }
+        .toolbar { display:flex; gap:10px; justify-content:center; margin-top:16px; }
+        .tool-btn { 
+            padding: 8px 16px; border-radius: 10px; border: 1px solid #e2e8f0; 
+            background: #fff; color: #475569; font-size: 13px; font-weight: 600; 
+            cursor: pointer; transition: all 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .tool-btn:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-1px); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>🩸 Thiếu Máu Thiếu Sắt Trẻ Em</h2>
+        <p>Phóng to/Thu nhỏ bằng con lăn. Kéo để di chuyển. Click chấm tròn để thu gọn nhánh.</p>
+        <div class="toolbar">
+            <button class="tool-btn" onclick="collapseAll()">➖ Thu gọn tất cả</button>
+            <button class="tool-btn" onclick="expandAll()">➕ Mở rộng tất cả</button>
+            <button class="tool-btn" onclick="fitView()">🎯 Căn giữa</button>
+        </div>
+    </div>
+    <div class="markmap">
+<script type="text/template">
+
+# Thiếu Máu Thiếu Sắt Trẻ Em
+
+## 1. ĐẠI CƯƠNG
+### 1.1. Dịch tễ
+- Theo TCYTTG (2011): **1/3 dân số** toàn cầu thiếu máu,<br>trong đó **50%** do thiếu sắt
+- Các nước đang phát triển (Phi châu, Á châu, Trung cận đông):<br>tỉ lệ thiếu máu thiếu sắt trẻ em **25%**,<br>phụ nữ tuổi sinh đẻ **37%**
+- **Việt Nam** (Viện Dinh dưỡng, 2015–2016):<br>trẻ dưới 5 tuổi thiếu máu **27,8%**,<br>trong đó do thiếu sắt chiếm **63,6%**
+  - Miền núi phía Bắc: **23,4%**
+  - Tây Nguyên: **26,3%**
+  - Trẻ **5–9 tuổi**: 9,2%
+  - Trẻ **10–14 tuổi**: 8,4%
+### 1.2. Đối tượng nguy cơ
+- **Sinh non**, suy dinh dưỡng bào thai
+- Trẻ **dưới 2 tuổi**
+- Chế độ ăn dặm chứa **ít sắt**,<br>thiếu cung cấp
+- Nữ giai đoạn **dậy thì**, trưởng thành
+- Phụ nữ giai đoạn **sinh sản**
+- Phụ nữ **có thai**: tăng nhu cầu sắt
+- **Mất máu** qua kinh nguyệt
+
+## 2. SINH LÝ HẤP THU & VAI TRÒ SẮT
+### 2.1. Nguồn cung cấp sắt
+#### Hồng cầu già
+- Mỗi ngày **1%** hồng cầu già bị vỡ<br>≈ **50 mL máu** (1% × 5.000 mL)
+- 2 mL máu cung cấp **1 mg sắt**
+- Mỗi ngày hồng cầu già cung cấp<br>**25 mg sắt** cho tủy tạo hồng cầu mới
+#### Thức ăn
+- Trẻ sơ sinh đủ tháng: chứa **0,5 gam** sắt<br>(người lớn: **5 gam**)
+- Cần hấp thụ TB **0,8 mg sắt/ngày**<br>trong 15 năm đầu đời
+- Cần hấp thu **~1 mg/ngày**<br>để duy trì cân bằng sắt dương
+- Chỉ **< 10%** sắt ăn uống được hấp thu<br>→ cần bổ sung **8–10 mg sắt/ngày**
+- Sữa mẹ: hấp thu sắt **50%**<br>Sữa công thức: **4–6%**
+### 2.2. Hấp thu sắt trong cơ thể
+#### Qua niêm mạc tá tràng
+- Sắt **heme** → hấp thu nhanh qua niêm mạc
+- Sắt **không heme** (Fe³⁺) → chuyển thành<br>Fe²⁺ nhờ **ferrireductase**
+- Fe²⁺ gắn với **H⁺**, vận chuyển qua<br>**DMT1** (divalent metal transporter 1)
+- Từ trong niêm mạc ruột, Fe²⁺ phóng vào máu<br>nhờ **ferroportin** và **hephalestin**
+- **Tăng hấp thu**: acid HCl, acid amin, vitamin C
+- **Giảm hấp thu**: phosphate hữu cơ (ngũ cốc),<br>tannin (trà), các loại đậu
+#### Qua huyết tương
+- Fe³⁺ liên kết với **transferrin**<br>(1 transferrin chứa **2 nguyên tử sắt**)
+- Vai trò transferrin: vận chuyển Fe³⁺ không độc tính<br>→ đưa đến tủy, gan, lách, hồng cầu
+#### Hấp thu ở tế bào đích
+- Tế bào nhận sắt nhờ **TfR** (transferrin receptor)
+- TfR bộc lộ tùy nhu cầu tạo hồng cầu
+- TfR **không bị ảnh hưởng** bởi viêm
+- Khi truyền máu nhiều → sắt dự trữ ở gan<br>nhiều (có TfR) → **Hemochromatosis**
+### 2.3. Phân phối, dự trữ & tạo Hb
+#### Sự phân phối
+- **75%** sắt dạng heme → tủy xương,<br>tạo Hb và myoglobin
+- **15%** sắt không heme → dự trữ<br>ferritin và hemosiderin
+- **~3%** sắt → men nội bào<br>(cytochromes, catalase, succinic dehydrogenase)
+- Thiếu sắt nặng → không tạo heme<br>→ thiếu máu do thiếu sắt
+- Thiếu sắt → giảm ATP, giảm men mitochondria<br>→ **chậm phát triển vận động & tâm thần kinh**
+#### Sắt dự trữ
+- **Ferritin**: phức hợp sắt (Fe³⁺) protein hòa tan<br>→ tiêu chuẩn chẩn đoán thiếu sắt sớm
+- Ferritin **tăng giả** khi viêm cấp,<br>nhiễm trùng mạn, bệnh lý gan
+- **Hemosiderin**: phức hợp sắt (Fe³⁺⁺⁺)<br>protein không hòa tan
+#### Vai trò sắt trong tạo Hb
+- Heme = sắt (Fe²⁺) + **Protoporphyrin IX**
+- Quá trình: Succinyl-CoA + Glycine<br>→ **δ-ALA** (nhờ pyridoxal phosphate/B6<br>& δ-ALA synthetase)<br>→ Protoporphyrin IX → gắn Fe²⁺<br>nhờ **ferrochelatase** → **Heme**
+- Nguyên nhân hồng cầu nhỏ khác:<br>thiếu B6, ngộ độc chì<br>(ức chế ALAS, ALAD, ferrochelatase)
+### 2.4. Sinh lý bệnh thiếu máu thiếu sắt
+- Khi sắt giảm → **tăng hấp thu sắt**<br>& điều hòa sử dụng sắt
+- Tăng hấp thu: **HIF2α** → tăng DMT1<br>→ tăng hấp thu niêm mạc ruột
+- **Hepcidin giảm** → tăng ferroportin<br>→ tăng giải phóng sắt khỏi tế bào
+- Điều hòa tế bào: **IRP** (iron regulatory protein)<br>gắn 5'UTR-IRE → ức chế ferritin,<br>tăng sản xuất TfR
+- Sắt bị hạn chế → HIF2α → tăng **EPO**,<br>giảm hepcidin, tăng TFR hòa tan<br>→ hồng cầu non tăng, heme giảm<br>→ **hồng cầu nhỏ, nhược sắc**
+- Thay đổi huyết học qua **3 giai đoạn**:
+  - **Sớm**: ferritin giảm
+  - **Trung gian**: ferritin giảm, sắt huyết thanh giảm,<br>transferrin giảm, hepcidin giảm,<br>TIBC tăng, sTfR tăng, protoporphyrin tăng
+  - **Muộn**: Hb giảm, MCV giảm, MCH giảm
+### 2.5. Miễn dịch & nhiễm trùng
+- Thiếu sắt → giảm **IL-2, IL-6**<br>→ giảm chức năng bạch cầu & lympho bào
+- Bổ sung sắt khi **bão hòa tối đa**<br>→ tăng nguy cơ nhiễm trùng<br>(transferrin, lactoferrin mất hiệu quả kìm vi trùng)
+### 2.6. Nhu cầu sắt theo tuổi
+- Trẻ sinh đủ tháng: **1 mg/kg/ngày**<br>(tối đa 15 mg/ngày) từ tháng thứ tư
+- Trẻ sinh non: **2–4 mg/kg/ngày**<br>(tối đa 15 mg/ngày) từ 2 tuần tuổi
+- Trẻ **1–3 tuổi**: 7 mg/ngày
+- Trẻ **4–8 tuổi**: 10 mg/ngày
+- Trẻ **9–13 tuổi**: 8 mg/ngày
+- Phụ nữ kinh nguyệt: **5 mg/ngày**
+- Phụ nữ có thai: **7 mg/ngày**
+
+## 3. NGUYÊN NHÂN
+### 3.1. Thiếu cung cấp & tăng nhu cầu
+#### Sơ sinh
+- Thai phụ cung cấp **2/3 lượng sắt**<br>vào thai kì thứ 3 qua mao nhau<br>có thụ thể transferrin
+- Trẻ đủ tháng: dự trữ **~250 mg sắt**<br>từ 3 tháng cuối thai kì
+- Nguy cơ thiếu sắt: **sinh non**, sinh đôi,<br>già tháng, suy dinh dưỡng bào thai,<br>con thứ 3, 4...
+- Trẻ sinh non dự trữ sắt **rất ít**<br>→ thiếu sắt sớm hơn từ tháng đầu
+#### Trẻ < 6 tháng
+- Tủy chưa ổn định, sản xuất hồng cầu<br>dựa vào sắt dự trữ thai kì & sữa bú
+- Thiếu máu thiếu sắt **không xuất hiện**<br>ở trẻ đủ tháng trong các tháng đầu
+- Trẻ **đẻ non** → cần sắt sớm hơn
+#### 6–12 tháng
+- Sữa chứa **rất ít sắt**:<br>sữa mẹ 0,5–1,5 mg/L;<br>sữa bò 0,5 mg/L; sữa công thức 12 mg/L
+- Hấp thu sắt sữa mẹ **50%** > sữa CT **4–6%**
+- Bú mẹ hoàn toàn → vẫn nguy cơ thiếu sắt<br>nếu không ăn dặm trước **6 tháng**
+- TCYTTG: **tập ăn dặm từ tháng thứ 6**
+#### 12 tháng – 2 tuổi
+- Tủy xương ổn định, cần **5–7 mg sắt/ngày**<br>hấp thu từ đường tiêu hóa
+- Bổ sung thực phẩm giàu sắt:<br>trứng, thịt, cá, rau xanh, đậu
+- Chế độ sữa kéo dài / ăn toàn bột<br>→ tăng nguy cơ thiếu máu thiếu sắt
+#### Dậy thì
+- Nam: tăng khối cơ, myoglobin, Hb
+- Nữ: nhu cầu sắt tăng + mất máu kinh nguyệt
+### 3.2. Các nguyên nhân khác
+#### Thiếu chất vận chuyển sắt
+- **Atransferrinemia** bẩm sinh
+- Thiếu **vitamin C** (Scorbut)
+- **Pulmonary Hemosiderosis**<br>(sắt giữ ở tổ chức phổi)
+- Viêm nhiễm do vi trùng
+- Bệnh tự miễn, u ác tính
+#### Kém hấp thu
+- Bệnh lý tiêu hóa mạn:<br>tiêu chảy kéo dài, viêm dạ dày, ruột
+- Nhiễm **giun móc**, *Helicobacter pylori*
+#### Xuất huyết
+- Thai phụ/thai nhi xuất huyết trước & trong sinh
+- Xuất huyết tiêu hóa: giun móc,<br>*H. pylori*, viêm dạ dày, viêm ruột
+- Thoát vị thực quản, túi thừa Meckel,<br>polype ruột, **rong kinh**
+
+## 4. TRIỆU CHỨNG LÂM SÀNG
+### 4.1. Giai đoạn sớm
+- Xuất hiện **từ từ**, phụ thuộc mức độ thiếu sắt
+- **Không có** triệu chứng lâm sàng
+- Chỉ thay đổi trên **xét nghiệm**
+### 4.2. Giai đoạn muộn
+#### Giảm sắt ở các men
+- Giảm **catalase, peroxydase, cyto-chrome**<br>nhất là **MAO** (mono-amine-oxydase)
+- Rối loạn thần kinh: quấy khóc, vật vã,<br>chán ăn, ngủ ít, **sinh hoạt chậm chạp**
+- Kém minh mẫn, hay quên, chóng mặt,<br>nhức đầu, ù tai
+#### Giảm sắt ở cơ
+- Giảm phát triển vận động, giảm trương lực cơ
+- Chậm biết ngồi, đứng, đi; **bắp thịt nhão**
+- Tim nhanh, tiếng thổi cơ năng, **suy tim**
+#### Giảm sắt ở hồng cầu
+- Thiếu máu, **da xanh** do giảm Hb<br>(Hb < **11 g/dL**)
+- Tăng tạo máu bù: gan lách to ở trẻ nhũ nhi
+- Hồng cầu non, hồng cầu lưới ra máu ngoại vi
+- Hồng cầu **nhược sắc, kích thước nhỏ**
+- Trẻ có thể **sốt** do bội nhiễm
+#### Nuôi dưỡng tế bào
+- Tóc dễ gãy rụng, móng tay/chân **biến dạng**
+- Dẹp, lõm; xương đau nhức
+#### Bất thường khác
+- **Hội chứng Pica/pagophagia**: ăn đất sét,<br>than, giấy, gạo sống, khoai sống...
+- Thường gặp trẻ thiếu sắt, đáp ứng sớm khi bù sắt
+- **Huyết khối**: trẻ thiếu máu thiếu sắt<br>dễ bị huyết khối, tắc mạch não
+
+## 5. TRIỆU CHỨNG CẬN LÂM SÀNG
+### 5.1. Giai đoạn sớm
+#### Huyết học
+- CTM: Hb giảm nhẹ **< 11 g/dL**
+- **RDW tăng** (Red blood cell distribution width)
+- Phết máu: hồng cầu kích thước **không đều**
+#### Sinh hóa
+- **Ferritin giảm** (xuất hiện sớm nhất)
+- Transferrin tăng, độ bão hòa transferrin giảm
+- **Ret-HE < 29 pg**: chẩn đoán thiếu máu thiếu sắt<br>(thay đổi sớm nhất, không ảnh hưởng bởi viêm)
+- **Hypo% > 5%**: tỉ lệ hồng cầu nhược sắc<br>phản ánh lượng sắt trong 3 tháng gần đây
+### 5.2. Giai đoạn muộn
+#### Huyết học
+- Hb **< 11 g/dL**, MCV **< 78 fL** (70+n, n = tuổi 1–10)
+- MCH **< 28 pg**, MCHC **< 30%**
+- Tiểu cầu tăng nhẹ do phản ứng tùy
+- Phết máu: HC nhỏ, nhược sắc, kích thước thay đổi
+- Tủy đồ: không có hemosiderine
+#### Sinh hóa
+- Ferritin giảm **< 12 ng/mL** (< 5 tuổi)<br>và **< 15 ng/mL** (> 5 tuổi)
+- Sắt huyết thanh giảm **< 100 μg%**
+- Transferrin tăng **> 350 μg/100 mL**
+- Độ bão hòa transferrin (TS) giảm<br>**< 30%** (< 16% ở người trẻ)
+- Protoporphyrin tự do cao<br>> 70 μg/dL (trẻ < 5 tuổi)<br>> 80 μg/dL (trẻ > 5 tuổi)
+
+## 6. CHẨN ĐOÁN
+### 6.1. Chẩn đoán xác định
+- Trẻ **dưới 5 tuổi**: Hb < **11 g/dL**<br>& ferritin < **12 ng/mL**
+- Trẻ **trên 5 tuổi**: Hb < **11,5 g/dL**<br>& ferritin < **15 ng/mL**
+- Ferritin không giảm nếu có **viêm nhiễm** kèm<br>→ cần kiểm tra CRP, nồng độ transferrin
+- Nếu viêm/nhiễm trùng: ferritin **< 30 ng/mL**<br>vẫn chẩn đoán được thiếu máu thiếu sắt
+### 6.2. Chẩn đoán sớm (sàng lọc)
+#### Tuyến cơ sở
+- Sàng lọc **tất cả trẻ < 5 tuổi** đến khám
+- Đánh giá chế độ ăn **tất cả trẻ < 2 tuổi**
+- Thiếu máu trung bình (bàn tay nhợt):<br>cho sắt uống **3 mg/kg/ngày × 2 tuần**<br>+ xổ giun + chế độ ăn phù hợp
+- Tái khám **2–4 tuần**: nếu cải thiện<br>→ xem như chẩn đoán thiếu máu thiếu sắt
+#### Tuyến trung tâm thành phố
+- Đối tượng nguy cơ:
+  - Trẻ < 12 tháng: đẻ non, suy DD bào thai
+  - Trẻ > 12 tháng: bú sữa > **600 mL/ngày**<br>& ăn dặm < 2 lần/ngày
+  - Trẻ < 5 tuổi: uống > **750 mL sữa/ngày**<br>& ăn < 3 lần/ngày
+  - Nhiễm trùng mạn, viêm nhiễm,<br>rối loạn tiêu hóa mạn, hội chứng ruột ngắn
+- XN ban đầu: CTM (Hb, RDW, MCV) & **Ferritin**
+### 6.3. Chẩn đoán muộn
+- Lâm sàng: thiếu máu **trung bình – nặng**
+- XN: Hb **< 7 g/dL**, MCV < 78 fL,<br>MCH < 28 pg, MCHC < 30%, **RDW > 16,5%**
+- Hồng cầu lưới giảm, ferritin giảm
+### 6.4. Chẩn đoán phân biệt
+#### Ngộ độc chì
+- Trẻ < 6 tuổi, thiếu máu mạn
+- Đau bụng, móng đen, **viền burton** trên răng
+- Phết máu: HC có **hạt ái kiềm**
+- δ-ALA niệu tăng, tăng chì máu,<br>tăng FEP (protoporphyrin) nước tiểu
+#### Thalassemia trait
+- Thiếu máu nhẹ, **không đáp ứng** với sắt uống
+- HC nhỏ nhược sắc, hình bia
+- Sắt huyết thanh & ferritin **không giảm**
+- HC > 5 triệu/mm³, **RDW < 14%**
+- Chỉ số Mentzer < 13
+- **HbA2 tăng** (> 3,5%)
+#### Bệnh viêm nhiễm mạn tính
+- Thiếu máu mức độ trung bình nhẹ
+- Sắt huyết thanh giảm, **ferritin tăng**
+- Transferrin BT hoặc giảm,<br>độ bão hòa giảm, **lắng máu tăng**
+#### Atransferrinemia bẩm sinh
+- Sắt dự trữ không vận chuyển vào tủy
+- Máu **không tìm thấy** transferrin
+- Rất hiếm gặp, di truyền
+### 6.5. Chẩn đoán nguyên nhân
+#### Kém cung cấp
+- Yếu tố tuổi: **tất cả trẻ < 24 tháng**
+- Tiền căn: sinh non, phẫu thuật đường tiêu hóa
+- Chế độ dinh dưỡng: suy DD, béo phì,<br>chế độ ăn không phù hợp, thuốc kích thích ăn
+#### Kém hấp thu
+- Rối loạn tiêu hóa kéo dài
+- Soi phân tìm **máu ẩn**, ký sinh trùng
+- Kiểm tra *Helicobacter pylori*
+#### Xuất huyết mạn
+- Nhiễm **giun móc** (yếu tố dịch tễ)
+- Hemophilia, giảm tiểu cầu mạn
+
+## 7. ĐIỀU TRỊ
+### 7.1. Nguyên tắc
+- Tăng tạo **Hb** và tạo **dự trữ sắt**
+- Điều trị **nguyên nhân** thiếu sắt
+- Tăng cường chế độ ăn giàu sắt:<br>thịt đỏ, trứng, cá, gan + vitamin C
+- Hạn chế thức ăn cản trở hấp thu:<br>sữa, ngũ cốc, hạt, đậu, trà, cà phê
+### 7.2. Điều trị bù sắt
+#### Đường uống
+- Liều sắt nguyên tố: **3–6 mg/kg/ngày**<br>uống cách xa bữa ăn
+- Hiện nay: liều **3 mg/kg/ngày** sắt nguyên tố<br>cải thiện chi số huyết học tốt,<br>ít tác dụng phụ
+- Uống tốt khi **bụng đói**,<br>dung nạp tốt hơn khi uống **1,5–2 giờ** sau ăn
+- Chia sắt **1–3 liều/ngày**
+- Theo dõi: Hb sau **4 tuần** điều trị,<br>Hb tăng > **1 mg/dL** → chẩn đoán xác định & đáp ứng
+- Tiếp tục sắt **2–3 tháng** sau khi Hb bình thường<br>để củng cố dự trữ
+- Ưu điểm: đơn giản, hiệu quả, an toàn, ít tác dụng phụ
+- TDP: rối loạn tiêu hóa, ứ sắt ở viền răng
+- **Diễn tiến đáp ứng** bù sắt uống:
+  - **12–24 giờ**: hết quấy khóc, chán ăn, vật vã
+  - **36–48 giờ**: đáp ứng tủy xương<br>(hồng cầu non, hồng cầu lưới tăng)
+  - **48–72 giờ**: hồng cầu lưới tăng,<br>đạt đỉnh **5–7 ngày** rồi giảm
+  - **4–30 ngày**: Hct tăng 1%/tuần đầu,<br>Hb tăng ≥ **1 g/dL/tháng**
+  - **1–3 tháng**: phục hồi dự trữ sắt
+#### Đường tiêm
+- Chỉ định:
+  - Không uống được (nôn ói nhiều khi uống sắt)
+  - Kém hấp thu do bệnh lý ruột,<br>gen kháng sắt uống (TMPRSS6...)
+  - Trẻ khó tuân thủ dùng sắt lâu dài
+  - Cần bổ sung sắt nhanh, mất máu vượt nhu cầu
+  - Tổn thương nặng đường tiêu hóa
+  - Cần điều trị erythropoietin,<br>chạy thận nhân tạo, bệnh thận mạn
+- Công thức tính lượng sắt cần bù:<br>**Lượng sắt (mg) = Thể tích máu × (12,5 − Hb BN) × 3,4 × 1,2 / 100**
+  - Thể tích máu = **75 mL/kg** (thay đổi theo tuổi)
+  - 12,5 = Hb BT cần đạt
+  - 3,4 = mg sắt trong 1g Hb
+  - 1,2 = bù & cố dự trữ 20%
+- **Sắt sucrose**: dạng TM phổ biến nhất ở trẻ em
+  - Liều 1–4 mg/kg sắt nguyên tố pha NaCl TM
+  - ≥ 1 giờ/lần/mỗi tuần
+  - Tối đa **100 mg/lần** (trẻ em),<br>**200 mg/lần** (thanh thiếu niên)
+- Đáp ứng: triệu chứng cải thiện<br>vài ngày; hồng cầu lưới đỉnh **~10 ngày**
+- Đánh giá theo dõi: **6–8 tuần** sau khi dùng thuốc
+#### Truyền máu
+- **Hạn chế** vì đa số đáp ứng tốt với sắt uống
+- Chỉ định:
+  - Thiếu máu nặng Hb **< 5 g/dL**
+  - Kèm suy dinh dưỡng trầm trọng
+  - Kèm nhiễm trùng toàn thân nặng
+  - Kèm bệnh lý: suy hô hấp, chấn thương, phẫu thuật
+- Cách bù: HCL **5 mL/kg/lần**,<br>tốc độ ≤ **2 mL/kg/giờ**
+- Có thể thêm **Lasix 0,5–1 mg/kg/TM**<br>trước khi truyền
+### 7.3. Điều trị nguyên nhân
+- **Thiếu cung cấp**: hướng dẫn chế độ ăn,<br>cách chế biến thức ăn theo tuổi
+- **Nhiễm trùng**: điều trị tác nhân (giun móc,<br>giun chỉ, *Helicobacter pylori*)
+- Vệ sinh da, vệ sinh môi trường sống
+- Điều trị nguyên nhân gây xuất huyết:<br>viêm loét dạ dày, tá tràng, rong kinh...
+
+## 8. PHÒNG BỆNH
+### 8.1. Bổ sung sắt đối tượng nhu cầu cao
+- Khuyến cáo **bú mẹ** cho tất cả trẻ<br>đến trên **12 tháng**
+- Trẻ sinh non, suy DD bào thai:<br>bổ sung sắt **2 mg/kg/ngày**<br>từ tuần thứ 2 đến 12 tháng tuổi
+- Trẻ < 12 tháng không bú mẹ:<br>dùng sữa công thức bổ sung sắt **12 mg/ngày**
+- Ăn dặm từ **tháng thứ 6** với thực phẩm<br>nguồn gốc động vật, giàu sắt & vitamin C
+- Hạn chế sữa bò tươi trẻ < 12 tháng
+- Hạn chế trẻ 1–5 tuổi: sữa ≤ **600 mL/ngày**
+### 8.2. Sàng lọc đối tượng nguy cơ
+- Trẻ < 2 tuổi, sinh non, suy dinh dưỡng
+- Bệnh lý tiêu hóa mạn, xuất huyết mạn
+- Đánh giá bằng **chế độ ăn & công thức máu**
+### 8.3. Chẩn đoán thiếu sắt
+- Trẻ < 5 tuổi có HC nhỏ → tìm nguyên nhân<br>từ dinh dưỡng, viêm nhiễm tiêu hóa
+- Loại trừ **ngộ độc chì**
+- Bù sắt sớm nếu thiếu máu + chế độ DD không phù hợp
+
+## 9. KHUYẾN CÁO Y HỌC CHỨNG CỨ
+- Chẩn đoán thiếu máu thiếu sắt:<br>thiếu máu đơn độc + HC nhỏ nhược sắc<br>(MCV, MCH, MCHC thấp) + đáp ứng với sắt<br>**(mức độ chứng cứ 2)**
+- **Ferritin huyết thanh** là XN đầu tiên<br>để chẩn đoán thiếu sắt **(chứng cứ 1)**
+- Khi ferritin không rõ ràng → dùng<br>**độ bão hòa transferrin** **(chứng cứ 2)**
+- **CHr, Ret-HE, phần trăm HC nhược sắc**<br>có thể dùng chẩn đoán **(chứng cứ 1)**
+- Dùng **muối sắt** (sắt sunfat/fumarate/gluconate)<br>để điều trị **(chứng cứ 2)**
+- **Không khuyến nghị** viên sắt giải phóng kéo dài,<br>bao tan trong ruột, liposome **(chứng cứ 1)**
+- Liều uống **2–3 mg/kg/ngày** sắt nguyên tố<br>+ acid folic, kéo dài **2–3 tháng** sau Hb BT<br>**(chứng cứ 1)**
+- Dùng sắt uống **1 lần/ngày**,<br>chia liều nếu có TDP tiêu hóa **(chứng cứ 1)**
+- Tái khám: thiếu máu nặng → **ngày thứ 7**,<br>thiếu máu nhẹ → **ngày 14** **(chứng cứ 2)**
+- Không đáp ứng sắt uống = không tăng Hb **1 g/dL**<br>sau 2 tuần (nặng) hoặc 4 tuần (nhẹ) **(chứng cứ 2)**
+- Khi cần tiêm → ưu tiên **đường tĩnh mạch**,<br>không tiêm bắp/tiêm qua da **(chứng cứ 2)**
+- Chế phẩm TM: **sắt sucrose, ferric carboxymaltose,<br>ferric deisomaltose (isomaltosid)** **(chứng cứ 1)**
+- Đánh giá theo dõi **6–8 tuần** sau tiêm TM **(chứng cứ 2)**
+
+    </script>
+</div>
+<script>
+function foldNode(n,f){if(n.children&&n.children.length){n.payload=n.payload||{};n.payload.fold=f;n.children.forEach(c=>foldNode(c,f));}}
+function collapseAll(){const mm=window._getMM();if(!mm)return;const r=mm.state.data;if(r&&r.children){r.children.forEach(c=>foldNode(c,1));mm.setData(r);setTimeout(()=>mm.fit(),300);}}
+function expandAll(){const mm=window._getMM();if(!mm)return;foldNode(mm.state.data,0);mm.setData(mm.state.data);setTimeout(()=>mm.fit(),300);}
+function fitView(){const mm=window._getMM();if(mm)mm.fit();}
+</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Sơ đồ kiến thức: 🌬️ Trao Đổi Khí</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    <script>
+    (function () {
+        let _orig = null, _mm = null;
+        Object.defineProperty(window, 'markmap', {
+            configurable: true,
+            get() { return _orig; },
+            set(val) {
+                _orig = val;
+                if (val && val.Markmap && !val.Markmap.__patched) {
+                    const origCreate = val.Markmap.create;
+                    val.Markmap.create = function (svg, opts, data) {
+                        opts = opts || {};
+                        opts.scrollForPan = false;
+                        const mm = origCreate.call(val.Markmap, svg, opts, data);
+                        _mm = mm; return mm;
+                    };
+                    val.Markmap.__patched = true;
+                }
+            }
+        });
+        window._getMM = () => _mm;
+    })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17.0"></script>
+    <style>
+        :root {
+            --primary: #dc2626;
+            --bg: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.85);
+            --border: rgba(0, 0, 0, 0.05);
+        }
+        body { margin: 0; padding: 0; min-height: 100vh; display: flex; flex-direction: column; font-family: 'Inter', sans-serif; background: var(--bg); color: #0f172a; }
+        .header { 
+            padding: 24px; text-align: center; 
+            background: var(--glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100;
+        }
+        .markmap { flex-grow: 1; width: 100%; height: 80vh; padding: 20px; box-sizing: border-box; }
+        h2 { margin: 0; font-family: 'Outfit', sans-serif; font-size: 1.5rem; color: var(--primary); letter-spacing: -0.02em; }
+        p { font-size: 0.85rem; color: #64748b; margin-top: 4px; }
+        .toolbar { display:flex; gap:10px; justify-content:center; margin-top:16px; }
+        .tool-btn { 
+            padding: 8px 16px; border-radius: 10px; border: 1px solid #e2e8f0; 
+            background: #fff; color: #475569; font-size: 13px; font-weight: 600; 
+            cursor: pointer; transition: all 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .tool-btn:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-1px); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>🌬️ Trao Đổi Khí</h2>
+        <p>Phóng to/Thu nhỏ bằng con lăn. Kéo để di chuyển. Click chấm tròn để thu gọn nhánh.</p>
+        <div class="toolbar">
+            <button class="tool-btn" onclick="collapseAll()">➖ Thu gọn tất cả</button>
+            <button class="tool-btn" onclick="expandAll()">➕ Mở rộng tất cả</button>
+            <button class="tool-btn" onclick="fitView()">🎯 Căn giữa</button>
+        </div>
+    </div>
+    <div class="markmap">
+<script type="text/template">
+# Bài 16. Trao đổi khí tại phổi (Màng hô hấp)
+TS.BS. Đặng Huỳnh Anh Thư
+
+## MỤC TIÊU HỌC TẬP
+1. Trình bày thành phần và phân áp các khí trong khí quyển, phế nang và máu.
+2. Mô tả cấu trúc 6 lớp của màng phế nang - mao mạch.
+3. Giải thích các yếu tố ảnh hưởng đến tốc độ khuếch tán khí qua màng (Định luật Fick).
+4. Phân tích sự xứng hợp giữa thông khí và tưới máu (Tỷ lệ V/Q).
+
+## 1. PHÂN ÁP CÁC KHÍ TRONG HÔ HẤP
+Khí di chuyển từ nơi có phân áp cao đến nơi có phân áp thấp.
+
+### 1.1 Khí hít vào (Khí quyển)
+- **pO2**: 159 mmHg.
+- **pCO2**: 0.3 mmHg.
+- Khi vào đường dẫn khí, khí được làm ẩm ($\%H_2O$ tăng) $\to$ **pO2 giảm xuống ~149 mmHg**.
+
+### 1.2 Khí phế nang và Máu tĩnh mạch
+- **Khí phế nang**: pO2 = 104 mmHg; pCO2 = 40 mmHg.
+- **Máu tĩnh mạch (trước trao đổi)**: pO2 = 40 mmHg; pCO2 = 46 mmHg.
+- **Khuynh áp**:
+  - Oxy: $104 - 40 = 64$ mmHg (đẩy O2 vào máu).
+  - Cacbonic: $46 - 40 = 6$ mmHg (đẩy CO2 vào phế nang).
+  - *Lưu ý*: Dù khuynh áp CO2 rất nhỏ (6 mmHg) nhưng CO2 khuếch tán nhanh gấp 20 lần O2 nên vẫn trao đổi kịp.
+
+## 2. MÀNG PHẾ NANG - MAO MẠCH (MÀNG HÔ HẤP)
+Gồm 6 lớp cực mỏng (~0.6 micromet) để tối ưu hóa trao đổi khí:
+1. Lớp dịch lót phế nang (chứa Surfactant).
+2. Biểu mô phế nang.
+3. Màng đáy biểu mô.
+4. Khoang kẽ.
+5. Màng đáy mao mạch.
+6. Nội mạc mao mạch.
+
+## 3. CƠ CHẾ KHUẾCH TÁN (ĐỊNH LUẬT FICK)
+Tốc độ khuếch tán ($V$) tỷ lệ thuận với Diện tích ($A$), Khuynh áp ($\Delta P$), Độ hòa tan ($S$); và tỷ lệ nghịch với Chiều dày màng ($d$), Căn bậc hai trọng lượng phân tử ($\sqrt{MW}$).
+- **Diện tích (A)**: Giảm trong bệnh khí phế thũng, cắt phổi.
+- **Chiều dày (d)**: Tăng trong xơ phổi, phù phổi $\to$ Cản trở trao đổi khí.
+
+## 4. TỶ LỆ THÔNG KHÍ / TƯỚI MÁU (V/Q)
+- Tỷ lệ lý tưởng $V/Q = 0.8$.
+- **Bất xứng V/Q**:
+  - **V/Q cao (Khoảng chết sinh lý)**: Thông khí tốt nhưng tưới máu kém (ví dụ: thuyên tắc mạch phổi).
+  - **V/Q thấp (Shunt sinh lý)**: Tưới máu tốt nhưng thông khí kém (ví dụ: dị vật đường thở, xẹp phổi).
+- **Phản xạ tự điều chỉnh**: 
+  - Nơi thiếu O2 $\to$ Co mạch vùng đó để lái máu sang nơi thông khí tốt hơn.
+  - Nơi thiếu máu $\to$ Co đường dẫn khí để lái khí sang nơi tưới máu tốt hơn.
+
+</script>
+    </div>
+<script>
+function foldNode(n,f){if(n.children&&n.children.length){n.payload=n.payload||{};n.payload.fold=f;n.children.forEach(c=>foldNode(c,f));}}
+function collapseAll(){const mm=window._getMM();if(!mm)return;const r=mm.state.data;if(r&&r.children){r.children.forEach(c=>foldNode(c,1));mm.setData(r);setTimeout(()=>mm.fit(),300);}}
+function expandAll(){const mm=window._getMM();if(!mm)return;foldNode(mm.state.data,0);mm.setData(mm.state.data);setTimeout(()=>mm.fit(),300);}
+function fitView(){const mm=window._getMM();if(mm)mm.fit();}
+</script>
+</body>
+</html>

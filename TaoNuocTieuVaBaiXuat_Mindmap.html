@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Sơ đồ kiến thức: 💧 Tạo Nước Tiểu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    <script>
+    (function () {
+        let _orig = null, _mm = null;
+        Object.defineProperty(window, 'markmap', {
+            configurable: true,
+            get() { return _orig; },
+            set(val) {
+                _orig = val;
+                if (val && val.Markmap && !val.Markmap.__patched) {
+                    const origCreate = val.Markmap.create;
+                    val.Markmap.create = function (svg, opts, data) {
+                        opts = opts || {};
+                        opts.scrollForPan = false;
+                        const mm = origCreate.call(val.Markmap, svg, opts, data);
+                        _mm = mm; return mm;
+                    };
+                    val.Markmap.__patched = true;
+                }
+            }
+        });
+        window._getMM = () => _mm;
+    })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17.0"></script>
+    <style>
+        :root {
+            --primary: #dc2626;
+            --bg: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.85);
+            --border: rgba(0, 0, 0, 0.05);
+        }
+        body { margin: 0; padding: 0; min-height: 100vh; display: flex; flex-direction: column; font-family: 'Inter', sans-serif; background: var(--bg); color: #0f172a; }
+        .header { 
+            padding: 24px; text-align: center; 
+            background: var(--glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100;
+        }
+        .markmap { flex-grow: 1; width: 100%; height: 80vh; padding: 20px; box-sizing: border-box; }
+        h2 { margin: 0; font-family: 'Outfit', sans-serif; font-size: 1.5rem; color: var(--primary); letter-spacing: -0.02em; }
+        p { font-size: 0.85rem; color: #64748b; margin-top: 4px; }
+        .toolbar { display:flex; gap:10px; justify-content:center; margin-top:16px; }
+        .tool-btn { 
+            padding: 8px 16px; border-radius: 10px; border: 1px solid #e2e8f0; 
+            background: #fff; color: #475569; font-size: 13px; font-weight: 600; 
+            cursor: pointer; transition: all 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .tool-btn:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-1px); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>💧 Tạo Nước Tiểu</h2>
+        <p>Phóng to/Thu nhỏ bằng con lăn. Kéo để di chuyển. Click chấm tròn để thu gọn nhánh.</p>
+        <div class="toolbar">
+            <button class="tool-btn" onclick="collapseAll()">➖ Thu gọn tất cả</button>
+            <button class="tool-btn" onclick="expandAll()">➕ Mở rộng tất cả</button>
+            <button class="tool-btn" onclick="fitView()">🎯 Căn giữa</button>
+        </div>
+    </div>
+    <div class="markmap">
+<script type="text/template">
+# Bài 9. Chức năng tạo nước tiểu và bài xuất
+TS.BS. Lê Quốc Tuấn
+
+## MỤC TIÊU HỌC TẬP
+1. Trình bày nguyên lý siêu lọc và cấu trúc màng lọc cầu thận (3 lớp).
+2. Phân tích các áp suất ảnh hưởng đến độ lọc cầu thận (GFR).
+3. Mô tả sự tái hấp thu và bài tiết tại các đoạn ống thận (Ống gần, Quai Henle, Ống xa, Ống góp).
+4. Giải thích cơ chế cô đặc và pha loãng nước tiểu (Hệ thống ngược dòng).
+
+## 1. QUÁ TRÌNH LỌC TẠI CẦU THẬN
+Lọc là bước đầu tiên để tạo nước tiểu, xảy ra tại các tiểu cầu thận.
+
+### 1.1 Màng lọc cầu thận (3 lớp)
+1. **Lớp nội mô mao mạch**: Có các lỗ thủng (cửa sổ) lớn nhưng tích điện âm $\to$ Ngăn protein.
+2. **Màng đáy**: Cấu tạo bởi Collagen và Proteoglycan tích điện âm cực mạnh $\to$ Rào cản chính đối với Albumin.
+3. **Lớp tế bào có chân (Podocyte)**: Các chân giả đan xen nhau tạo khe lọc. Có cấu trúc **Nephrin** như dây kéo để lọc kích thước.
+
+### 1.2 Độ lọc cầu thận (GFR)
+- Trị số bình thường: **125 mL/phút** (180 lít/ngày).
+- **Các áp suất quyết định**:
+  - Áp suất thủy tĩnh mao mạch ($P_{GC} \approx 60$ mmHg): Đẩy dịch lọc ra (Động lực chính).
+  - Áp suất thủy tĩnh khoang Bowman ($P_{BC} \approx 18$ mmHg): Chống lại lọc.
+  - Áp suất keo mao mạch ($\pi_{GC} \approx 32$ mmHg): Hút dịch lại (Chống lại lọc).
+  - Áp suất siêu lọc tịnh = $60 - (18 + 32) = 10$ mmHg.
+
+## 2. CHỨC NĂNG CỦA ỐNG THẬN
+Ống thận tái hấp thu các chất cần thiết và bài tiết các chất cặn bã.
+
+### 2.1 Ống lượn gần (Tái hấp thu 65%)
+- **Tái hấp thu**: 100% Glucose và Acid amin (qua đồng vận chuyển với Na+). 65% Na+, K+, nước và Cl-.
+- **Bài tiết**: H+, các chất độc, thuốc.
+- **Ngưỡng thận của Glucose**: 180 mg/dL. Nếu đường máu cao hơn, đường sẽ xuất hiện trong nước tiểu.
+
+### 2.2 Quai Henle (Cơ chế ngược dòng)
+- **Nhánh xuống**: Chỉ thấm nước, không thấm muối $\to$ Dịch ống trở nên ưu trương.
+- **Nhánh lên (đoạn dày)**: Thấm muối (bơm Na-K-2Cl), không thấm nước $\to$ Dịch ống trở nên nhược trương.
+- **Ý nghĩa**: Tạo độ ưu trương cho dịch kẽ tủy thận để giúp cô đặc nước tiểu ở ống góp.
+
+### 2.3 Ống lượn xa và Ống góp
+- **Aldosterone**: Tác động tại đây để tăng tái hấp thu Na+ và bài tiết K+.
+- **ADH (Hormon chống bài niệu)**: Mở kênh nước (Aquaporin) tại ống góp để tái hấp thu nước $\to$ Cô đặc nước tiểu.
+
+## 3. CÔ ĐẶC VÀ PHA LOÃNG NƯỚC TIỂU
+- Khi cơ thể thiếu nước $\to$ Tuyến yên tiết **ADH** $\to$ Ống góp tái hấp thu nước tối đa $\to$ Nước tiểu ít và ưu trương.
+- Khi thừa nước $\to$ Không có ADH $\to$ Ống góp không thấm nước $\to$ Nước tiểu nhiều và nhược trương (loãng).
+</script>
+    </div>
+<script>
+function foldNode(n,f){if(n.children&&n.children.length){n.payload=n.payload||{};n.payload.fold=f;n.children.forEach(c=>foldNode(c,f));}}
+function collapseAll(){const mm=window._getMM();if(!mm)return;const r=mm.state.data;if(r&&r.children){r.children.forEach(c=>foldNode(c,1));mm.setData(r);setTimeout(()=>mm.fit(),300);}}
+function expandAll(){const mm=window._getMM();if(!mm)return;foldNode(mm.state.data,0);mm.setData(mm.state.data);setTimeout(()=>mm.fit(),300);}
+function fitView(){const mm=window._getMM();if(mm)mm.fit();}
+</script>
+</body>
+</html>

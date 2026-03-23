@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Sơ đồ kiến thức: Điều hoà hoạt động tim</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    <script>
+    (function () {
+        let _orig = null, _mm = null;
+        Object.defineProperty(window, 'markmap', {
+            configurable: true,
+            get() { return _orig; },
+            set(val) {
+                _orig = val;
+                if (val && val.Markmap && !val.Markmap.__patched) {
+                    const origCreate = val.Markmap.create;
+                    val.Markmap.create = function (svg, opts, data) {
+                        opts = opts || {};
+                        opts.scrollForPan = false;
+                        const mm = origCreate.call(val.Markmap, svg, opts, data);
+                        _mm = mm; return mm;
+                    };
+                    val.Markmap.__patched = true;
+                }
+            }
+        });
+        window._getMM = () => _mm;
+    })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17.0"></script>
+    <style>
+        :root {
+            --primary: #0284c7;
+            --bg: #f0f9ff;
+            --glass: rgba(255, 255, 255, 0.85);
+            --border: rgba(0, 0, 0, 0.05);
+        }
+        body { margin: 0; padding: 0; min-height: 100vh; display: flex; flex-direction: column; font-family: 'Inter', sans-serif; background: var(--bg); color: #0f172a; }
+        .header { 
+            padding: 24px; text-align: center; 
+            background: var(--glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100;
+        }
+        .markmap { flex-grow: 1; width: 100%; height: 80vh; padding: 20px; box-sizing: border-box; }
+        h2 { margin: 0; font-family: 'Outfit', sans-serif; font-size: 1.5rem; color: var(--primary); letter-spacing: -0.02em; }
+        p { font-size: 0.85rem; color: #64748b; margin-top: 4px; }
+        .toolbar { display:flex; gap:10px; justify-content:center; margin-top:16px; }
+        .tool-btn { 
+            padding: 8px 16px; border-radius: 10px; border: 1px solid #e2e8f0; 
+            background: #fff; color: #475569; font-size: 13px; font-weight: 600; 
+            cursor: pointer; transition: all 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .tool-btn:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-1px); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>⚖️ Điều hoà hoạt động tim</h2>
+        <p>Phóng to/Thu nhỏ bằng con lăn. Kéo để di chuyển. Click chấm tròn để thu gọn nhánh.</p>
+        <div class="toolbar">
+            <button class="tool-btn" onclick="collapseAll()">➖ Thu gọn tất cả</button>
+            <button class="tool-btn" onclick="expandAll()">➕ Mở rộng tất cả</button>
+            <button class="tool-btn" onclick="fitView()">🎯 Căn giữa</button>
+        </div>
+    </div>
+    <div class="markmap">
+# ⚖️ Điều hoà hoạt động tim
+
+## 1. ĐIỀU HOÀ HOẠT ĐỘNG NÚT XOANG (Tần số nhịp)
+### 1.1 Cơ chế thần kinh
+#### 1.1.1 Hệ thần kinh thực vật (Giao cảm và Đối giao cảm)
+- **Hệ phó giao cảm (Dây thần kinh X / Phế vị):**
+  - Trạm xuất phát: Nhân lưng dây X và nhân hoài nghi ở **Hành não**.
+  - Hoá chất trung gian: **Acetylcholine**. 
+  - Tác dụng: Cực kì nhanh (Tiềm tàng ngắn khoảng **50 - 100 msec** do có men cholinesterase). *"Làm chậm nhịp tim"*.
+  - Sợi chi phối: Dây X **phải** ảnh hưởng nút xoang (làm chậm, ngưng bặt). Dây X **trái** tác động nút nhĩ thất.
+- **Hệ giao cảm:**
+  - Trạm xuất phát: Tuỷ gai cổ C5-C6 xuống phần đầu ngực -> Hạch sao và hạch cổ dưới.
+  - Hoá chất trung gian: **Norepinephrine**.
+  - Tác dụng: Chậm nhưng duy trì lâu hơn. *"Làm nhịp nhanh"*.
+  - Sợi chi phối: Giao cảm **trái** ưu tiên tăng co bóp thất. Giao cảm **phải** kích tăng tần số nhịp.
+
+#### 1.1.2 Tác động của các nhóm phản xạ
+1. **Phản xạ áp thụ quan (Thụ thể áp suất):**
+  - Nằm tại *Quai động mạch chủ* và *Xoang tĩnh ĐM cảnh*.
+  - Nguyên lý: Khi Huyết áp tăng -> Truyền dây thần kinh IX, X về hành não -> Kích thích trung tâm ức chế tim -> **Giảm nhịp, hạ HA**. 
+  - Hoạt động trong khoảng huyết áp **70 - 160 mmHg**. Ngoài vùng đó không điều chỉnh thêm.
+2. **Phản xạ Bainbridge (Nhĩ phải):**
+  - Kích hoạt khi: Bạn truyền dịch / máu dội về Nhĩ phải căng phồng (và nhịp nền đang **< 140 lần/phút**).
+  - Tác dụng: Truyền xung cảm giác dây X phản hồi hành não bẻ khóa gây **Tăng vọt nhịp tim**.
+  - Mục đích an toàn: *"để đẩy hết lượng máu ứ ở tim phải"* ra ngoài.
+3. **Mối quan hệ nhịp thở:**
+  - Nhịp tim **Tăng** khi hít vào (Lồng ngực giảm áp -> hút máu tĩnh mạch về Nhĩ phải -> khởi phát Bainbridge tăng nhịp).
+  - Nhịp tim **Giảm** chậm lại khi thở ra.
+
+### 1.2 Cơ chế thể dịch (Hóa học / Nội tiết)
+- **Hormone:** Catecholamine tủy thượng thận, Tuyến giáp, Glucagon tụy -> Thúc ép tăng nhịp.
+- **Khí hô hấp:** Tụt O2 sẽ đập nhanh. Tăng cao CO2 ngưng tim.
+- **Ion:** Dư **K+** gây chậm nhịp mạch yếu lả. Dư **Ca2+** gây ngưng tim thì bóp chặt.
+
+## 2. ĐIỀU HOÀ TÍNH CO BÓP CƠ TIM (Lực nhát bóp)
+### 2.1 Điều hoà bên trong tổ chức cơ bản
+#### 2.1.1 ĐỊNH LUẬT FRANK-STARLING
+  * *"trong phạm vi giới hạn sinh lý, sức co bóp của cơ tim tỉ lệ thuận với chiều dài sợi cơ trước co..."*
+- Thực chất: Máu đổ về thất cực nhiều (tăng tiền tải) -> Sợi cơ tâm thất giãn căng ra kịch cỡ -> Các điểm kết nối chuỗi *Actin - Myosin* dàn mấu vào nhau thuận lợi nhất -> Mang lại sức bung đàn hồi đập mạnh mãnh liệt.
+- Bù trừ nhịp chậm: Nhịp đập chậm -> Có nhiều thời gian đổ đầy máu (kéo dãn cơ Starling tốt) -> Lực một nhát bóp cực nặng bù vào -> Giải thích do đâu Cung lượng tim không bị tụt đi.
+
+#### 2.1.2 Ảnh hưởng của rối loạn nhịp
+- **Ngoại tâm thu sớm:** Nhát đến sớm chới với này có Lực bóp cực yếu (chưa tích tụ đủ lượng nội Ca2+ và máu trữ ít).
+- **Nghỉ bù sau đó:** Quãng trống dài -> Đầy ắp Canxi và máu bồi về -> Nhát đập kinh thiên động địa bạo phát siêu mạnh.
+- Giới hạn vàng: Nhịp tăng đến khoảng **150 - 170 lần/phút** là đẩy co bóp tối đa lực.
+
+### 2.2 Điều hoà điều tiết bởi ngoại sinh
+#### 2.2.1 Thần kinh
+- **Kích Giao cảm:** Phóng phân tử báo hiệu đến thụ thể **β (Beta)** màng cơ -> tăng men Adenyl Cyclaz -> tăng `AMP vòng` -> bộc lộ xuyên thủng mở toang cửa kênh **Ca2+ type L** -> *"tăng co cơ"*.
+- **Phó giao cảm:** Acetylcholine ôm thụ thể **Muscarinic** ức chế ngược Adenyl Cyclaz, dập tắt canxi khiến co cơ yếu thoi thóp.
+
+#### 2.2.2 Thông số Khí máu & Ion
+- **CO2 máu:** PaCO2 xuống thấp tầm **34 mmHg** gây phản ứng hưng quang tăng co áp. PaCO2 dâng kịch trần **86 mmHg** gây ức chế bại tim.
+- **Mức Ion nội - ngoại bào:**
+  - **K+ dư:** Xóa sạch điện thế nghỉ -> màng xì hơi vĩnh kiếp -> block không nhồi nổi bóp.
+  - **Ca2+ cao:** Đập mạnh như kềm bóp móp -> Hoảng loạn đứng chết đanh tim.
+    </div>
+<script>
+function foldNode(n,f){if(n.children&&n.children.length){n.payload=n.payload||{};n.payload.fold=f;n.children.forEach(c=>foldNode(c,f));}}
+function collapseAll(){const mm=window._getMM();if(!mm)return;const r=mm.state.data;if(r&&r.children){r.children.forEach(c=>foldNode(c,1));mm.setData(r);setTimeout(()=>mm.fit(),300);}}
+function expandAll(){const mm=window._getMM();if(!mm)return;foldNode(mm.state.data,0);mm.setData(mm.state.data);setTimeout(()=>mm.fit(),300);}
+function fitView(){const mm=window._getMM();if(mm)mm.fit();}
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "StudyHub - Thạc Sĩ 2026",
+  "short_name": "StudyHub",
+  "description": "Ôn tập Sinh lý & Nhi khoa cho kỳ thi Thạc sĩ 2026",
+  "start_url": "/Dashboard.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#6366f1",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "AppIcon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

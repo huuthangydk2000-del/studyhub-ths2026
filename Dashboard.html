@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>StudyHub - Thạc Sĩ 2026</title>
+<!-- PWA & iOS -->
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="StudyHub">
+<link rel="apple-touch-icon" href="AppIcon.png">
+<meta name="theme-color" content="#6366f1">
+<meta name="description" content="Ôn tập Sinh lý & Nhi khoa cho kỳ thi Thạc sĩ 2026 - UMP">
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Markmap Autoloader -->
+<script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17.0"></script>
+<!-- External Questions Data -->
+<script src="questions_sl.js"></script>
+<script src="questions.js"></script>
+<!-- Marked.js for Markdown Rendering -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<style>
+:root {
+  --primary: #6366f1;
+  --primary-glow: rgba(99, 102, 241, 0.4);
+  --accent: #f59e0b;
+  --bg: #f8fafc;
+  --text: #0f172a;
+  --text-dim: #64748b;
+  --sidebar: rgba(255, 255, 255, 0.8);
+  --card: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --border: #e2e8f0;
+  --correct: #10b981;
+  --wrong: #ef4444;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+[data-theme=dark] {
+  --bg: #0f172a;
+  --text: #f1f5f9;
+  --text-dim: #94a3b8;
+  --sidebar: rgba(30, 41, 59, 0.8);
+  --card: #1e293b;
+  --glass-bg: rgba(30, 41, 59, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --border: #334155;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+
+body { 
+  font-family: 'Inter', sans-serif; 
+  background: var(--bg); 
+  color: var(--text); 
+  height: 100vh; 
+  display: flex; 
+  overflow: hidden; 
+  background-image: radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+                    radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+                    radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+  background-attachment: fixed;
+}
+
+[data-theme=''] body {
+  background-image: radial-gradient(at 0% 0%, hsla(253,100%,95%,1) 0, transparent 50%), 
+                    radial-gradient(at 50% 0%, hsla(225,100%,90%,1) 0, transparent 50%), 
+                    radial-gradient(at 100% 0%, hsla(339,100%,95%,1) 0, transparent 50%);
+}
+
+/* SIDEBAR - Glassmorphism */
+.sidebar { 
+  width: 280px; 
+  height: 100vh; 
+  background: var(--sidebar); 
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid var(--glass-border); 
+  display: flex; 
+  flex-direction: column; 
+  flex-shrink: 0; 
+  z-index: 50; 
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+  position: relative;
+}
+
+.sidebar.collapsed {
+  width: 0;
+  transform: translateX(-100%);
+}
+
+.toggle-sidebar {
+  position: absolute;
+  right: -48px;
+  top: 16px;
+  width: 36px;
+  height: 36px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.2s;
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+.sidebar.collapsed .toggle-sidebar {
+  right: -56px;
+}
+.toggle-sidebar:hover {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.1);
+}
+
+.sidebar-header { 
+  padding: 32px 24px; 
+}
+.sidebar-header h1 { 
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem; 
+  font-weight: 800; 
+  background: linear-gradient(135deg, var(--primary), #a855f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.03em; 
+}
+
+.countdown-box { 
+  margin-top: 16px; 
+  padding: 16px; 
+  background: var(--glass-bg); 
+  border-radius: 12px; 
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-sm);
+}
+.countdown-label { font-size: 0.7rem; text-transform: uppercase; font-weight: 700; color: var(--text-dim); letter-spacing: 0.05em; }
+.countdown-val { font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--text); margin-top: 4px; }
+
+.subject-nav { flex: 1; overflow-y: auto; padding: 0 16px 12px; }
+
+/* SUBJECT SWITCHER */
+.subject-switcher {
+  display: flex;
+  padding: 16px;
+  gap: 8px;
+  border-bottom: 1px solid var(--glass-border);
+  margin-bottom: 12px;
+}
+.subject-tab {
+  flex: 1;
+  padding: 10px 4px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--glass-bg);
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.subject-tab:hover {
+  border-color: var(--primary-glow);
+  color: var(--primary);
+}
+.subject-tab.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px var(--primary-glow);
+}
+.subject-tab i { font-size: 1.2rem; }
+.subject-group { margin-bottom: 12px; }
+.subject-header { 
+  width: 100%; display: flex; align-items: center; gap: 12px; padding: 12px 14px; 
+  border-radius: 10px; cursor: pointer; font-weight: 600; font-size: 0.9rem; 
+  transition: all 0.2s; border: none; background: transparent; text-align: left; color: var(--text);
+}
+.subject-header:hover { background: rgba(99,102,241,0.1); }
+.subject-header .chevron { margin-left: auto; transition: transform 0.3s; font-size: 0.7rem; opacity: 0.4; }
+.subject-group.open .chevron { transform: rotate(180deg); }
+
+.lesson-list { display: none; margin-top: 6px; padding-left: 12px; }
+.subject-group.open .lesson-list { display: block; animation: slideDown 0.3s ease-out; }
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.lesson-item { 
+  display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 8px; 
+  font-size: 0.85rem; cursor: grab; color: var(--text-dim); transition: all 0.2s; text-decoration: none;
+}
+.lesson-item:hover { color: var(--primary); background: rgba(99,102,241,0.05); }
+.lesson-item.active { background: var(--primary); color: white; font-weight: 600; box-shadow: 0 8px 16px -4px var(--primary-glow); }
+.lesson-item.dragging { opacity: 0.4; cursor: grabbing; }
+
+.subject-group.drag-over {
+  background: rgba(99,102,241,0.1);
+  border-radius: 12px;
+}
+
+/* MAIN AREA */
+.main { flex: 1; display: flex; flex-direction: column; overflow: hidden; position: relative; }
+.top-nav { 
+  height: 72px; display: flex; align-items: center; padding: 0 32px 0 64px; 
+  background: var(--glass-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--glass-border); gap: 16px; flex-shrink: 0; z-index: 40;
+}
+.lesson-title { font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 700; flex: 1; letter-spacing: -0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.nav-actions { display: flex; gap: 10px; align-items: center; }
+.btn { 
+  padding: 10px 20px; border-radius: 10px; border: 1px solid var(--border); 
+  background: var(--card); cursor: pointer; font-size: 0.85rem; font-weight: 600; 
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); display: flex; align-items: center; gap: 8px; color: var(--text);
+}
+.btn:hover { border-color: var(--primary); transform: translateY(-1px); box-shadow: var(--shadow); }
+.btn:active { transform: translateY(0); }
+.btn.active { background: var(--primary); color: white; border-color: var(--primary); box-shadow: 0 4px 12px var(--primary-glow); }
+
+.btn-exam { background: linear-gradient(135deg, var(--accent), #ea580c); color: white; border: none; padding: 10px 24px; }
+.btn-exam:hover { box-shadow: 0 8px 20px -4px rgba(245, 158, 11, 0.4); }
+
+/* CONTENT WRAPPER */
+.content-wrapper { flex: 1; display: flex; overflow: hidden; position: relative; }
+.pane { height: 100%; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; }
+#mindmap-pane { flex: 1; background: transparent; overflow: hidden; }
+#mindmap-iframe { width: 100%; height: 100%; border: none; }
+#resizer { width: 6px; background: transparent; cursor: col-resize; z-index: 10; flex-shrink: 0; transition: background 0.2s; }
+#resizer:hover { background: var(--primary-glow); }
+
+#quiz-pane { 
+  width: 480px; background: var(--glass-bg); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+  border-left: 1px solid var(--glass-border); display: flex; flex-direction: column; overflow: hidden;
+}
+
+/* HOME VIEW - Premium Stats */
+.home-view { padding: 48px; width: 100%; max-width: 1000px; margin: 0 auto; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; margin-top: 32px; }
+.stat-card { 
+  background: var(--glass-bg); padding: 32px; border-radius: 20px; border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow-lg); transition: transform 0.3s;
+}
+.stat-card:hover { transform: translateY(-5px); }
+.stat-card .label { font-size: 0.8rem; font-weight: 700; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; }
+.stat-card .value { font-family: 'Outfit', sans-serif; font-size: 2.5rem; font-weight: 800; margin-top: 8px; color: var(--primary); }
+
+/* QUIZ UI */
+.quiz-header { padding: 20px 24px; border-bottom: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; }
+.quiz-header h3 { font-family: 'Outfit', sans-serif; font-size: 1rem; }
+.score-pill { padding: 6px 14px; border-radius: 99px; background: var(--primary); color: white; font-size: 0.8rem; font-weight: 700; }
+
+.quiz-scroll { flex: 1; overflow-y: auto; padding: 24px; scroll-behavior: smooth; }
+.q-box { 
+  margin-bottom: 32px; padding: 24px; background: var(--card); border-radius: 16px; border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm); transition: all 0.3s;
+}
+.q-box:hover { box-shadow: var(--shadow); border-color: var(--primary-glow); }
+.q-text { font-size: 0.95rem; font-weight: 600; line-height: 1.6; margin-bottom: 20px; }
+.opt-list { display: flex; flex-direction: column; gap: 10px; }
+.opt { 
+  padding: 14px 18px; border-radius: 12px; border: 1px solid var(--border); cursor: pointer; 
+  font-size: 0.9rem; transition: all 0.2s; display: flex; gap: 12px; align-items: center; 
+}
+.opt:hover { background: var(--bg); border-color: var(--primary); transform: translateX(5px); }
+.opt.correct { border-color: var(--correct); background: rgba(16,185,129,0.1); color: #065f46; font-weight: 600; }
+.opt.wrong { border-color: var(--wrong); background: rgba(239,68,68,0.1); color: #991b1b; }
+.opt.disabled { pointer-events: none; }
+.opt-prefix { 
+  width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; 
+  background: var(--bg); border-radius: 6px; font-weight: 800; font-size: 0.75rem; color: var(--primary); 
+}
+.opt.correct .opt-prefix { background: var(--correct); color: white; }
+.opt.wrong .opt-prefix { background: var(--wrong); color: white; }
+
+.explain-box { 
+  margin-top: 16px; padding: 16px; border-radius: 12px; border-left: 4px solid var(--primary); 
+  background: rgba(99,102,241,0.05); font-size: 0.85rem; line-height: 1.6; display: none; 
+}
+.explain-box.show { display: block; animation: fadeIn 0.4s ease; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* MODAL - Premium Blur */
+.modal { position: fixed; inset: 0; background: rgba(15,23,42,0.6); z-index: 100; display: none; align-items: center; justify-content: center; backdrop-filter: blur(8px); }
+.exam-container { 
+  width: 95%; max-width: 900px; height: 90vh; background: var(--card); border-radius: 24px; 
+  display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); 
+}
+.exam-header { padding: 24px 32px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 24px; }
+.timer-pill { padding: 8px 20px; border-radius: 12px; background: #fee2e2; color: #dc2626; font-weight: 800; font-family: 'Outfit', monospace; font-size: 1.25rem; }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-dim); }
+
+/* CITE & TOOLTIP */
+.cite-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: var(--primary-glow);
+  color: var(--primary);
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  margin: 0 4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  vertical-align: middle;
+}
+.cite-tag:hover {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.2);
+}
+
+.tooltip-box {
+  position: absolute;
+  z-index: 1000;
+  background: var(--card);
+  border: 1px solid var(--primary);
+  padding: 12px 16px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  font-size: 0.85rem;
+  max-width: 300px;
+  line-height: 1.5;
+  pointer-events: none;
+  display: none;
+  animation: tooltipFade 0.2s ease-out;
+}
+@keyframes tooltipFade {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#doc-pane {
+  flex: 1;
+  background: var(--sidebar);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  overflow-y: auto;
+  padding: 60px 40px;
+  display: none;
+  scroll-behavior: smooth;
+}
+#doc-content {
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.8;
+  color: var(--text);
+}
+#doc-content h1 { font-size: 2.5rem; border-bottom: 2px solid var(--primary-glow); padding-bottom: 0.5rem; margin-top: 0; }
+#doc-content h2 { font-size: 1.8rem; margin-top: 3rem; color: var(--primary); }
+#doc-content h3 { font-size: 1.4rem; margin-top: 2rem; }
+#doc-content p { margin-bottom: 1.2rem; opacity: 0.9; }
+#doc-content strong { color: var(--primary); }
+#doc-content blockquote {
+  border-left: 4px solid var(--primary);
+  background: var(--primary-glow);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 12px 12px 0;
+  font-style: italic;
+}
+
+/* RESPONSIVE collapsable sidebar */
+@media (max-width: 1024px) {
+  .sidebar { transform: translateX(-100%); position: absolute; }
+  .sidebar.show { transform: translateX(0); }
+}
+</style>
+</head>
+<body data-theme="">
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="toggle-sidebar" onclick="toggleSidebar()" title="Thu gọn/Mở rộng">☰</div>
+    <h1>STUDY HUB</h1>
+    <div class="countdown-box">
+      <div class="countdown-label">Ngày thi thạc sĩ 2026</div>
+      <div class="countdown-val" id="exam-countdown">--- ngày --- giờ</div>
+    </div>
+  </div>
+  
+  <div class="subject-switcher">
+    <button class="subject-tab active" onclick="switchMainSubject('sinh_ly')" id="tab-sinh_ly">
+      <span>🧬</span>
+      <span>Sinh Lý</span>
+    </button>
+    <button class="subject-tab" onclick="switchMainSubject('nhi_khoa')" id="tab-nhi_khoa">
+      <span>👶</span>
+      <span>Nhi khoa</span>
+    </button>
+  </div>
+
+  <nav class="subject-nav" id="subject-nav">
+    <!-- Rendered by JS -->
+  </nav>
+
+  <div style="padding: 24px; border-top: 1px solid var(--glass-border);">
+    <button class="btn" style="width: 100%; justify-content: center;" onclick="toggleTheme()">🌓 Dark Mode</button>
+  </div>
+</aside>
+
+<main class="main">
+  <div class="top-nav">
+    <div class="lesson-title" id="current-title">Tổng quan học tập</div>
+    <div class="nav-actions">
+      <button class="btn btn-exam" onclick="startDailyExam()">🔥 Luyện đề 20q</button>
+      <div style="width: 1px; height: 32px; background: var(--glass-border); margin: 0 8px;"></div>
+      <button class="btn active" id="btn-both" onclick="setViewMode('both')">⊞ Ghép</button>
+      <button class="btn" id="btn-map" onclick="setViewMode('map')">🗺 Map</button>
+      <button class="btn" id="btn-doc" onclick="setViewMode('doc')">📖 Tài liệu</button>
+      <button class="btn" id="btn-quiz" onclick="setViewMode('quiz')">📝 Quiz</button>
+    </div>
+  </div>
+
+  <div class="content-wrapper" id="content-area">
+    <!-- Home view by default -->
+    <div class="home-view" id="home-view">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 800; margin-bottom: 8px;">Chào mừng trở lại, Bác sĩ!</h2>
+        <p style="color: var(--text-dim); font-size: 1.1rem;">Lịch trình thi Thạc sĩ đang đến gần. Hãy tập trung tối đa.</p>
+      </div>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="label">Tổng số bài học</div>
+          <div class="value" id="stat-total-q">17 Bài</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">Tỷ lệ chính xác</div>
+          <div class="value" id="stat-accuracy">0%</div>
+        </div>
+        <div class="stat-card">
+          <div class="label">Ngày còn lại</div>
+          <div class="value" id="stat-days">---</div>
+        </div>
+      </div>
+      
+      <div style="margin-top: 48px; padding: 32px; background: var(--primary); border-radius: 20px; color: white; display: flex; align-items: center; gap: 32px;">
+        <div style="font-size: 4rem;">🩺</div>
+        <div>
+          <h3 style="font-family: 'Outfit'; font-size: 1.5rem; margin-bottom: 8px;">Đề cương Thạc sĩ 2026</h3>
+          <p style="opacity: 0.9; line-height: 1.6;">Hệ thống đã được cập nhật bám sát danh mục 17 bài học chính thức từ Đại học Y Dược TP.HCM. Chúc thầy ôn tập hiệu quả!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lesson view hidden by default -->
+    <div class="pane" id="mindmap-pane" style="display: none;">
+      <div id="mindmap-content" style="height: 100%;"></div>
+    </div>
+
+    <div class="pane" id="doc-pane" style="display: none;">
+      <div id="doc-content"></div>
+    </div>
+    
+    <div id="resizer" style="display: none;"></div>
+    
+    <div class="pane" id="quiz-pane" style="display: none;">
+      <div class="quiz-header">
+        <h3>Kiểm tra kiến thức</h3>
+        <span class="score-pill" id="score-display">Đúng: 0/0</span>
+      </div>
+      <div class="quiz-scroll" id="quiz-scroll"></div>
+    </div>
+  </div>
+</main>
+
+<div class="modal" id="exam-modal">
+  <div class="exam-container">
+    <div class="exam-header">
+      <h2 style="flex: 1; font-family: 'Outfit';">📝 Luyện đề 20 câu ngẫu nhiên</h2>
+      <div class="timer-pill" id="exam-timer">20:00</div>
+      <button class="btn" onclick="closeExam()">Kết thúc</button>
+    </div>
+    <div class="quiz-scroll" id="exam-questions"></div>
+    <div style="padding: 24px; border-top: 1px solid var(--border); text-align: center;">
+      <button class="btn btn-exam" style="margin: 0 auto;" onclick="submitExam()">Nộp bài & Xem kết quả</button>
+    </div>
+  </div>
+</div>
+
+<script>
+window.SUBJECTS = [
+  // SINH LÝ HỌC
+  {
+    mainSubject: "sinh_ly",
+    id: "huyết_học",
+    title: "Máu & Huyết Học",
+    icon: "🩸",
+    lessons: [
+      { id: "b1", title: "1. Hồng cầu & Nhóm máu", icon: "🔴", mindmap: "SinhLyHongCau_NhomMau_Mindmap.html", 
+        get mcq() { 
+          const hc = window.MCQ_DATA?.[0]?.lessons?.find(l => l.id === "hong-cau")?.mcq || [];
+          const nm = window.MCQ_DATA?.[0]?.lessons?.find(l => l.id === "nhom-mau")?.mcq || [];
+          return [...hc, ...nm];
+        } 
+      },
+      { id: "b2", title: "2. Tiểu cầu & Cầm máu", icon: "🛡️", mindmap: "TieuCau_Mindmap.html", 
+        get mcq() { return window.MCQ_DATA?.[0]?.lessons?.find(l => l.id === "tieu-cau")?.mcq || []; } 
+      }
+    ]
+  },
+  {
+    mainSubject: "sinh_ly",
+    id: "tim_mạch",
+    title: "Hệ Tim Mạch",
+    icon: "🫀",
+    lessons: [
+      { id: "b3", title: "3. Hoạt động điện của tim", icon: "⚡", mindmap: "HoatDongDienCuaTim_Mindmap.html", 
+        get mcq() { return window.MCQ_DATA?.[0]?.lessons?.find(l => l.id === "hoatdongdien")?.mcq || []; } 
+      },
+      { id: "b4", title: "4. Bơm máu của tim", icon: "⛽", mindmap: "ChucNangBomMauCuaTim_Mindmap.html", 
+        get mcq() { return window.MCQ_DATA?.[0]?.lessons?.find(l => l.id === "chucnangbommau")?.mcq || []; } 
+      },
+      { id: "b5", title: "5. Điều hòa hoạt động tim", icon: "⚖️", mindmap: "DieuHoaHoatDongTim_Mindmap.html", 
+        get mcq() { return window.MCQ_DATA?.[0]?.lessons?.find(l => l.id === "dieuhoahoatdong")?.mcq || []; } 
+      }
+    ]
+  },
+  {
+    mainSubject: "sinh_ly",
+    id: "hô_hấp",
+    title: "Hệ Hô Hấp",
+    icon: "🫁",
+    lessons: [
+      { id: "b6", title: "6. Cơ học hô hấp", icon: "⚙️", mindmap: "CoHocHoHap_Mindmap.html", 
+        get mcq() { return window.MCQ_DATA?.[0]?.lessons?.find(l => l.id === "cohochohap")?.mcq || []; } 
+      },
+      { id: "b7", title: "7. Trao đổi khí tại phổi", icon: "🔄", mindmap: "TraoDoiKhi_Mindmap.html", 
+        get mcq() { return window.MCQ_DATA?.[0]?.lessons?.find(l => l.id === "traodoikhi")?.mcq || []; } 
+      },
+      { id: "b8", title: "8. Chuyên chở khí trong máu", icon: "🚚", mindmap: "ChuyenChoKhi_Mindmap.html", 
+        get mcq() { return window.MCQ_DATA?.[0]?.lessons?.find(l => l.id === "chuyenchokhi")?.mcq || []; } 
+      }
+    ]
+  },
+  {
+    mainSubject: "sinh_ly",
+    id: "thận_nội_môi",
+    title: "Hệ Thận & Nội Môi",
+    icon: "💧",
+    lessons: [
+      { id: "b9", title: "9. Chức năng tạo nước tiểu", icon: "🚿", mindmap: "TaoNuocTieuVaBaiXuat_Mindmap.html", 
+        get mcq() { return window.MCQ_DATA?.[0]?.lessons?.find(l => l.id === "taonuoctieu")?.mcq || []; } 
+      },
+      { id: "b10", title: "10. Nội tiết của thận", icon: "🧪", mindmap: "NoiTietCuaThan_Mindmap.html", 
+        get mcq() { return window.MCQ_DATA?.[0]?.lessons?.find(l => l.id === "noitietthan")?.mcq || []; } 
+      }
+    ]
+  },
+  {
+    mainSubject: "sinh_ly",
+    id: "tiêu_hóa",
+    title: "Hệ Tiêu Hóa",
+    icon: "🍕",
+    lessons: [
+      { id: "b11", title: "11. Tiêu hóa ở dạ dày", icon: "🏟️", mindmap: "TieuHoaDaDay_Mindmap.html", 
+        get mcq() { return window.MCQ_DATA?.[0]?.lessons?.find(l => l.id === "tieuhoadaday")?.mcq || []; } 
+      },
+      { id: "b12", title: "12. Tiêu hóa ở ruột non", icon: "🥨", mindmap: "TieuHoaRuotNon_Mindmap.html", 
+        get mcq() { return window.MCQ_DATA?.[0]?.lessons?.find(l => l.id === "tieuhoaruotnon")?.mcq || []; } 
+      }
+    ]
+  },
+  {
+    mainSubject: "sinh_ly",
+    id: "nội_tiết",
+    title: "Hệ Nội Tiết",
+    icon: "🌀",
+    lessons: [
+      { id: "b13", title: "13. Khái quát hoạt động nội tiết", icon: "🗝️", mindmap: "KhaiQuatNoiTiet_Mindmap.html", 
+        get mcq() { return window.MCQ_DATA?.[0]?.lessons?.find(l => l.id === "khaiquatnoitiet")?.mcq || []; } 
+      },
+      { id: "b14", title: "14. Sinh lý tuyến giáp", icon: "🦋", mindmap: "SinhLyTuyenGiap_Mindmap.html", 
+        get mcq() { return window.MCQ_DATA?.[0]?.lessons?.find(l => l.id === "tuyengiap")?.mcq || []; } 
+      },
+      { id: "b15", title: "15. Sinh lý tuyến tụy", icon: "🍭", mindmap: "SinhLyTuyenTuy_Mindmap.html", 
+        get mcq() { return window.MCQ_DATA?.[0]?.lessons?.find(l => l.id === "tuyentuy")?.mcq || []; } 
+      }
+    ]
+  },
+  {
+    mainSubject: "sinh_ly",
+    id: "thần_kinh",
+    title: "Hệ Thần Kinh",
+    icon: "🧠",
+    lessons: [
+      { id: "b16", title: "16. Sinh lý tủy gai", icon: "🎋", mindmap: "SinhLyTuyGai_Mindmap.html", 
+        get mcq() { return window.MCQ_DATA?.[0]?.lessons?.find(l => l.id === "sinhlytuygai")?.mcq || []; } 
+      },
+      { id: "b17", title: "17. Thần kinh tự chủ", icon: "🕹️", mindmap: "SinhLyHeThanKinhTuChu_Mindmap.html", 
+        get mcq() { return window.MCQ_DATA?.[0]?.lessons?.find(l => l.id === "sinhlyhethankinhtuchu")?.mcq || []; } 
+      }
+    ]
+  },
+  // NHI KHOA
+  {
+    mainSubject: "nhi_khoa",
+    id: "huyết_học_nhi",
+    title: "Huyết học Nhi",
+    icon: "👶",
+    lessons: [
+      { id: "thalassemia", title: "Thalassemia", icon: "🧬", mindmap: "Thalassemia_Mindmap.html", 
+        get mcq() { return window.MCQ_DATA?.[1]?.lessons?.find(l => l.id === "thalassemia")?.mcq || []; } 
+      },
+      { id: "thieu-mau-thieu-sat", title: "Thiếu máu thiếu sắt", icon: "🧪", mindmap: "ThieuMauThieuSat_Mindmap.html", 
+        get mcq() { return window.MCQ_DATA?.[1]?.lessons?.find(l => l.id === "thieu-mau-thieu-sat")?.mcq || []; } 
+      },
+      { id: "giam-tieu-cau", title: "Xuất huyết giảm tiểu cầu", icon: "💉", mindmap: "GiamTieuCau_Mindmap.html", 
+        get mcq() { return window.MCQ_DATA?.[1]?.lessons?.find(l => l.id === "giamtieucau")?.mcq || []; } 
+      }
+    ]
+  },
+  {
+    mainSubject: "nhi_khoa",
+    id: "tim_mach_nhi",
+    title: "Tim Mạch Nhi",
+    icon: "🫀",
+    lessons: [
+      { id: "thong-lien-that", title: "Thông Liên Thất", icon: "🫀", mindmap: "ThongLienThat_Mindmap.html", 
+        get mcq() { return window.MCQ_DATA?.[1]?.lessons?.find(l => l.id === "thong-lien-that")?.mcq || []; } 
+      }
+    ]
+  }
+];
+
+// STATE
+let currentViewMode = 'both';
+let activeLessonId = null;
+let currentMainSubject = 'sinh_ly';
+let stats = JSON.parse(localStorage.getItem('study_stats') || '{ "totalAnswered": 0, "correct": 0 }');
+let examTimer = null;
+
+// INIT
+function init() {
+  renderSidebar();
+  updateCountdown();
+  updateHomeStats();
+  setInterval(updateCountdown, 60000);
+}
+
+function switchMainSubject(subjectId) {
+  currentMainSubject = subjectId;
+  
+  // Update UI tabs
+  document.querySelectorAll('.subject-tab').forEach(tab => tab.classList.remove('active'));
+  document.getElementById(`tab-${subjectId}`).classList.add('active');
+  
+  // Re-render sidebar
+  renderSidebar();
+}
+
+function renderSidebar() {
+  const container = document.getElementById('subject-nav');
+  container.innerHTML = '';
+
+  const filteredSubjects = window.SUBJECTS.filter(s => s.mainSubject === currentMainSubject);
+
+  filteredSubjects.forEach((sub, idx) => {
+    const group = document.createElement('div');
+    group.className = 'subject-group open'; // Default open for better visibility
+    group.dataset.id = sub.id;
+    
+    const header = document.createElement('button');
+    header.className = 'subject-header';
+    header.innerHTML = `<span>${sub.icon} ${sub.title}</span> <span class="chevron">▼</span>`;
+    header.onclick = () => group.classList.toggle('open');
+    
+    const list = document.createElement('div');
+    list.className = 'lesson-list';
+    
+    sub.lessons.forEach(lesson => {
+      const item = document.createElement('a');
+      item.className = 'lesson-item' + (activeLessonId === lesson.id ? ' active' : '');
+      item.href = 'javascript:void(0)';
+      item.innerHTML = `<span>${lesson.icon} ${lesson.title}</span>`;
+      item.onclick = (e) => {
+        e.stopPropagation();
+        loadLesson(sub.id, lesson.id);
+      };
+      list.appendChild(item);
+    });
+    
+    group.appendChild(header);
+    group.appendChild(list);
+    container.appendChild(group);
+  });
+}
+
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  sidebar.classList.toggle('collapsed');
+}
+
+function updateCountdown() {
+  const target = new Date('2026-06-01T08:00:00');
+  const now = new Date();
+  const diff = target - now;
+  
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  
+  document.getElementById('exam-countdown').textContent = `${days} ngày ${hours} giờ`;
+  document.getElementById('stat-days').textContent = days;
+}
+
+function updateHomeStats() {
+  const accuracy = stats.totalAnswered > 0 ? Math.round((stats.correct / stats.totalAnswered) * 100) : 0;
+  document.getElementById('stat-accuracy').textContent = accuracy + "%";
+}
+
+function setViewMode(mode) {
+  currentViewMode = mode;
+  document.querySelectorAll('.nav-actions .btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(`btn-${mode}`).classList.add('active');
+  
+  const mapPane = document.getElementById('mindmap-pane');
+  const docPane = document.getElementById('doc-pane');
+  const quizPane = document.getElementById('quiz-pane');
+  const resizer = document.getElementById('resizer');
+  const homeView = document.getElementById('home-view');
+
+  if (activeLessonId === null) return;
+
+  homeView.style.display = 'none';
+
+  if (mode === 'both') {
+    mapPane.style.display = 'block';
+    docPane.style.display = 'none';
+    quizPane.style.display = 'flex';
+    quizPane.style.width = '480px';
+    resizer.style.display = 'block';
+  } else if (mode === 'map') {
+    mapPane.style.display = 'block';
+    docPane.style.display = 'none';
+    quizPane.style.display = 'none';
+    resizer.style.display = 'none';
+  } else if (mode === 'doc') {
+    mapPane.style.display = 'none';
+    docPane.style.display = 'block';
+    quizPane.style.display = 'none';
+    resizer.style.display = 'none';
+  } else if (mode === 'quiz') {
+    mapPane.style.display = 'none';
+    docPane.style.display = 'none';
+    quizPane.style.display = 'flex';
+    quizPane.style.width = '100%';
+    resizer.style.display = 'none';
+  }
+}
+
+function loadLesson(subId, lessonId) {
+  const sub = window.SUBJECTS.find(s => s.id === subId);
+  const lesson = sub.lessons.find(l => l.id === lessonId);
+  
+  activeLessonId = lessonId;
+  document.getElementById('current-title').textContent = lesson.title;
+  
+  // Update sidebar active state
+  document.querySelectorAll('.lesson-item').forEach(i => i.classList.remove('active'));
+  // Re-render sidebar to apply active class correctly (simplest way)
+  renderSidebar();
+
+  setViewMode(currentViewMode);
+
+  if (lesson.mindmap && lesson.mindmap !== "#") {
+    document.getElementById('mindmap-content').innerHTML = `<iframe id="mindmap-iframe" src="${lesson.mindmap}"></iframe>`;
+  } else {
+    document.getElementById('mindmap-content').innerHTML = `
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; opacity: 0.3;">
+        <span style="font-size: 4rem;">🧠</span>
+        <p>Sơ đồ tư duy đang được cập nhật...</p>
+      </div>`;
+  }
+  
+  const questions = typeof lesson.mcq === 'function' ? lesson.mcq() : lesson.mcq;
+  renderQuiz(questions || [], 'quiz-scroll');
+  updateScore(0, 0);
+}
+
+function renderQuiz(questions, containerId) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = questions.length ? '' : '<div style="padding:40px; text-align:center; opacity:0.5;">Câu hỏi đang được cập nhật...</div>';
+  
+  questions.forEach((q, qIdx) => {
+    const box = document.createElement('div');
+    box.className = 'q-box';
+    box.innerHTML = `
+      <div class="q-text">${qIdx + 1}. ${q.q}</div>
+      <div class="opt-list" id="opts-${containerId}-${qIdx}">
+        ${q.opts.map((opt, oIdx) => `
+          <div class="opt" onclick="handleSelect('${containerId}', ${qIdx}, ${oIdx}, ${q.c})">
+            <div class="opt-prefix">${String.fromCharCode(65 + oIdx)}</div>
+            <span>${opt}</span>
+          </div>
+        `).join('')}
+      </div>
+      <div class="explain-box" id="exp-${containerId}-${qIdx}">
+        <div style="font-weight: 700; color: var(--primary); margin-bottom: 4px;">Giải thích:</div>
+        ${q.e}
+      </div>
+    `;
+    container.appendChild(box);
+  });
+}
+
+function handleSelect(containerId, qIdx, oIdx, correctIdx) {
+  const opts = document.querySelectorAll(`#opts-${containerId}-${qIdx} .opt`);
+  const explain = document.getElementById(`exp-${containerId}-${qIdx}`);
+  
+  if (opts[0].classList.contains('disabled')) return;
+
+  opts.forEach((opt, idx) => {
+    opt.classList.add('disabled');
+    if (idx === correctIdx) opt.classList.add('correct');
+    else if (idx === oIdx) opt.classList.add('wrong');
+  });
+  
+  explain.classList.add('show');
+  
+  stats.totalAnswered++;
+  if (oIdx === correctIdx) stats.correct++;
+  localStorage.setItem('study_stats', JSON.stringify(stats));
+  
+  if (containerId === 'quiz-scroll') {
+    updateScore(stats.correct, stats.totalAnswered);
+    updateHomeStats();
+  }
+}
+
+function updateScore(score, total) {
+  document.getElementById('score-display').textContent = `Thống kê: ${score}/${total}`;
+}
+
+function startDailyExam() {
+  alert('Tính năng luyện đề sẽ hoạt động khi có đủ dữ liệu câu hỏi!');
+}
+
+function closeExam() {
+  document.getElementById('exam-modal').style.display = 'none';
+  clearInterval(examTimer);
+}
+
+function toggleTheme() {
+  const current = document.body.getAttribute('data-theme');
+  document.body.setAttribute('data-theme', current === 'dark' ? '' : 'dark');
+}
+
+// RESIZER
+(function() {
+  const resizer = document.getElementById('resizer');
+  const quizPane = document.getElementById('quiz-pane');
+  let isResizing = false;
+
+  resizer.addEventListener('mousedown', (e) => {
+    isResizing = true;
+    document.body.style.cursor = 'col-resize';
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (!isResizing) return;
+    const newWidth = window.innerWidth - e.clientX;
+    if (newWidth > 300 && newWidth < window.innerWidth * 0.7) {
+      quizPane.style.width = newWidth + 'px';
+    }
+  });
+
+  document.addEventListener('mouseup', () => {
+    isResizing = false;
+    document.body.style.cursor = 'default';
+  });
+})();
+
+init();
+</script>
+</body>
+</html>

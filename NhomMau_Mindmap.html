@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Sơ đồ kiến thức: Sinh Lý Nhóm Máu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    <script>
+    (function () {
+        let _orig = null, _mm = null;
+        Object.defineProperty(window, 'markmap', {
+            configurable: true,
+            get() { return _orig; },
+            set(val) {
+                _orig = val;
+                if (val && val.Markmap && !val.Markmap.__patched) {
+                    const origCreate = val.Markmap.create;
+                    val.Markmap.create = function (svg, opts, data) {
+                        opts = opts || {};
+                        opts.scrollForPan = false;
+                        const mm = origCreate.call(val.Markmap, svg, opts, data);
+                        _mm = mm; return mm;
+                    };
+                    val.Markmap.__patched = true;
+                }
+            }
+        });
+        window._getMM = () => _mm;
+    })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17.0"></script>
+    <style>
+        :root {
+            --primary: #c026d3;
+            --bg: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.85);
+            --border: rgba(0, 0, 0, 0.05);
+        }
+        body { margin: 0; padding: 0; min-height: 100vh; display: flex; flex-direction: column; font-family: 'Inter', sans-serif; background: var(--bg); color: #0f172a; }
+        .header { 
+            padding: 24px; text-align: center; 
+            background: var(--glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100;
+        }
+        .markmap { flex-grow: 1; width: 100%; height: 80vh; padding: 20px; box-sizing: border-box; }
+        h2 { margin: 0; font-family: 'Outfit', sans-serif; font-size: 1.5rem; color: var(--primary); letter-spacing: -0.02em; }
+        p { font-size: 0.85rem; color: #64748b; margin-top: 4px; }
+        .toolbar { display:flex; gap:10px; justify-content:center; margin-top:16px; }
+        .tool-btn { 
+            padding: 8px 16px; border-radius: 10px; border: 1px solid #e2e8f0; 
+            background: #fff; color: #475569; font-size: 13px; font-weight: 600; 
+            cursor: pointer; transition: all 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .tool-btn:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-1px); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>🩸 Sinh Lý Nhóm Máu</h2>
+        <p>Phóng to/Thu nhỏ bằng con lăn. Kéo để di chuyển. Click chấm tròn để thu gọn nhánh.</p>
+        <div class="toolbar">
+            <button class="tool-btn" onclick="collapseAll()">➖ Thu gọn tất cả</button>
+            <button class="tool-btn" onclick="expandAll()">➕ Mở rộng tất cả</button>
+            <button class="tool-btn" onclick="fitView()">🎯 Căn giữa</button>
+        </div>
+    </div>
+    <div class="markmap">
+<script type="text/template">
+# Nhóm Máu
+
+## 1. PHÂN LOẠI NHÓM MÁU
+### 1.1. Bốn nhóm máu hệ ABO
+- Kháng nguyên hệ ABO là chất **đa đường (mucopolysaccarit)**
+- Kháng nguyên A và B thể hiện gen A và B trên hồng cầu
+- Vị trí: trên hồng cầu, nước bọt, bạch cầu,<br>tiểu cầu, tế bào biểu mô, nội mô mạch máu
+  - *"Khoảng 80% có kháng nguyên A và B trong nước bọt...<br>là những kháng nguyên tan trong nước"*
+- Xuất hiện: bào thai **5 đến 6 tuần**
+- Số lượng: Tăng dần sau sinh, ổn định sau **2-4 năm**<br>và giữ hằng định suốt đời
+- Phân loại (Landsteiner, **1901**): **A, B, AB, O**
+- Tỷ lệ nhóm máu (VN): 
+  - O: **48%**
+  - B: **28%**
+  - A: **20%**
+  - AB: **5%**
+
+### 1.2. Định nhóm máu ABO
+- Cơ chế chung: Dựa trên chéo phản ứng ngưng kết
+- **Hồng cầu (định nhóm xuôi - Beth-Vincent)**
+  - Mục đích: Tìm kháng nguyên trên bề mặt hồng cầu
+  - Gồm: Kháng huyết thanh chuẩn (anti-A, anti-B, anti-AB) + Máu thử
+- **Huyết thanh (định nhóm ngược - Simonnn)**
+  - Mục đích: Tìm kháng thể trong huyết tương
+  - Gồm: Hồng cầu mẫu chuẩn (A, B, O) + Huyết thanh thử
+- Điều kiện chuẩn xác: 
+  - Kháng huyết thanh đủ độ nhạy/mạnh
+  - HC mẫu chuẩn rửa 3 lần bằng nước muối sinh lý **9‰**, pha **5-10%** 
+
+### 1.3. Kháng thể hệ ABO
+- Khởi phát: 
+  - Sơ sinh: KHÔNG có
+  - Bắt đầu tạo: **2 - 8 tháng**
+  - Đạt tối đa: **8 - 10 tuổi** (sau đó giảm theo tuổi già)
+- **Tự nhiên (anti-A, anti-B)**
+  - Bản chất: **IgM**
+  - Đặc điểm: Tự nhiên, hằng định, **KHÔNG qua nhau thai**
+- **Miễn dịch (anti-A, anti-B)**
+  - Bản chất: **IgG**
+  - Nguyên nhân: Bất đồng mẹ con (Mẹ O con A) hoặc môi trường
+  - Đặc điểm: Gây vỡ HC mạnh, **QUA được màng nhau thai**, hoạt tính ở **37°C**
+  - Người nhóm máu O mang anti-A/B MD -> **"Nhóm O nguy hiểm"**
+
+### 1.4. Nhóm phụ & HLA
+- **Nhóm phụ ABO**:
+  - A1 (**80%**), A2 (**20%** - phản ứng yếu với anti-A)
+  - Nhóm B yếu: Rất ít ngưng kết anti-B, không có ý nghĩa truyền máu
+- **Hệ HLA (Human leukocyte antigen)**:
+  - Vị trí: trên bạch cầu và tất cả tế bào **có nhân**
+  - Là kháng nguyên ghép đồng loại (hòa hợp mô)
+  - Ý nghĩa: phản ứng thải ghép, truyền tủy, chẩn đoán bệnh
+
+### 1.5. Hệ Rhesus (Rh)
+- Phát hiện: Landsteiner, **1940**, Macacus Rhesus
+- Kháng nguyên mạnh nhất: **Yếu tố D**
+- Tỷ lệ Rh+: VN **99,92%**, gốc Phi **100%**
+- Kháng thể Anti-D: 
+  - Là **kháng thể miễn dịch (IgG)**
+  - Chỉ tạo ra khi tiếp xúc: (1) Truyền nhầm máu, (2) Mẹ Rh- thai Rh+
+- Cơ chế tán huyết: 
+  - Tạo nồng độ tối đa sau **2-4 tháng**
+  - Anti-D làm ngưng kết HC Rh+ -> kẹt mao mạch ngoại biên -> bị thực bào phá hủy dần
+- Bệnh tiêu huyết sơ sinh (erythroblastosis fetalis): 
+  - Thường xảy ra ở con thứ 2 Rh+ (mẹ Rh- nhạy cảm) -> tỷ lệ **3%** -> thiếu máu trầm trọng
+
+## 2. TRUYỀN MÁU
+### 2.1. Chỉ định & Nguyên tắc
+- Chỉ định: Giảm thể tích, thiếu máu, cung cấp máu (huyết tương, yếu tố đông máu...)
+- **Nguyên tắc**: 
+  - Tốt nhất: Cùng nhóm
+  - Khác nhóm: Kháng nguyên HC người CHƠ<br>**không bị ngưng kết** bởi kháng thể huyết tương người NHẬN
+  - Nhóm O: Cho phổ thông
+  - Nhóm AB: Nhận phổ thông
+- Giảm thiểu tính sinh ngưng kết của lượng nhỏ kháng thể người cho: 
+  - Bị pha loãng nhanh
+  - Truyền chậm, mỗi lần **< 250 mL**
+  - Bị trung hòa bởi kháng nguyên mô đích
+- Khác: Truyền máu **từng phần** ưu tiên / Truyền toàn phần khi mất máu **> 30%** gây choáng
+
+### 2.2. Phản ứng tai biến
+- **Phản ứng chéo**: Bắt buộc tìm hiện tượng ngưng kết trước khi truyền
+- **Tai biến tán huyết**:
+  - Miễn dịch: Bất đồng nhóm -> tiêu hủy (hemolysis)
+  - Ngoài miễn dịch: Giữ máu sai nhiệt độ (**khác 4°C**), dung dịch sai pH/dextrose, áp lực truyền cao qua kim nhỏ, BN thiếu men **G6PD**
+- **Không tán huyết**: 
+  - Sốt, rét run, lây bệnh (siêu vi), quá mẫn...
+    
+</script>
+</div>
+<script>
+function foldNode(n,f){if(n.children&&n.children.length){n.payload=n.payload||{};n.payload.fold=f;n.children.forEach(c=>foldNode(c,f));}}
+function collapseAll(){const mm=window._getMM();if(!mm)return;const r=mm.state.data;if(r&&r.children){r.children.forEach(c=>foldNode(c,1));mm.setData(r);setTimeout(()=>mm.fit(),300);}}
+function expandAll(){const mm=window._getMM();if(!mm)return;foldNode(mm.state.data,0);mm.setData(mm.state.data);setTimeout(()=>mm.fit(),300);}
+function fitView(){const mm=window._getMM();if(mm)mm.fit();}
+</script>
+</body>
+</html>

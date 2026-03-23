@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Python & OCR scripts (không cần cho web)
+*.py
+*.pyc
+__pycache__/
+venv/
+
+# Temp & OCR output
+tesseract_tmp*/
+tmp_pdf_images*/
+*.txt
+
+# Source PDFs
+Sources/
+
+# Skill files (internal)
+SKILL.md
+
+# JSON raw data (đã embed vào questions.js)
+*_MCQ.json
+
+# Markdown source (chỉ giữ HTML output)
+# Giữ lại để tham khảo - comment dòng dưới nếu muốn exclude
+# *.md

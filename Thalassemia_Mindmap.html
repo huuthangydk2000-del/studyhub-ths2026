@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Sơ đồ kiến thức: Bệnh Thalassemia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    <script>
+    (function () {
+        let _orig = null, _mm = null;
+        Object.defineProperty(window, 'markmap', {
+            configurable: true,
+            get() { return _orig; },
+            set(val) {
+                _orig = val;
+                if (val && val.Markmap && !val.Markmap.__patched) {
+                    const origCreate = val.Markmap.create;
+                    val.Markmap.create = function (svg, opts, data) {
+                        opts = opts || {};
+                        opts.scrollForPan = false;
+                        const mm = origCreate.call(val.Markmap, svg, opts, data);
+                        _mm = mm; return mm;
+                    };
+                    val.Markmap.__patched = true;
+                }
+            }
+        });
+        window._getMM = () => _mm;
+    })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17.0"></script>
+    <style>
+        :root {
+            --primary: #0891b2;
+            --bg: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.85);
+            --border: rgba(0, 0, 0, 0.05);
+        }
+        body { margin: 0; padding: 0; min-height: 100vh; display: flex; flex-direction: column; font-family: 'Inter', sans-serif; background: var(--bg); color: #0f172a; }
+        .header { 
+            padding: 24px; text-align: center; 
+            background: var(--glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100;
+        }
+        .markmap { flex-grow: 1; width: 100%; height: 80vh; padding: 20px; box-sizing: border-box; }
+        h2 { margin: 0; font-family: 'Outfit', sans-serif; font-size: 1.5rem; color: var(--primary); letter-spacing: -0.02em; }
+        p { font-size: 0.85rem; color: #64748b; margin-top: 4px; }
+        .toolbar { display:flex; gap:10px; justify-content:center; margin-top:16px; }
+        .tool-btn { 
+            padding: 8px 16px; border-radius: 10px; border: 1px solid #e2e8f0; 
+            background: #fff; color: #475569; font-size: 13px; font-weight: 600; 
+            cursor: pointer; transition: all 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .tool-btn:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-1px); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>🧬 Bệnh Thalassemia</h2>
+        <p>Phóng to/Thu nhỏ bằng con lăn. Kéo để di chuyển. Click chấm tròn để thu gọn nhánh.</p>
+        <div class="toolbar">
+            <button class="tool-btn" onclick="collapseAll()">➖ Thu gọn tất cả</button>
+            <button class="tool-btn" onclick="expandAll()">➕ Mở rộng tất cả</button>
+            <button class="tool-btn" onclick="fitView()">🎯 Căn giữa</button>
+        </div>
+    </div>
+    <div class="markmap">
+<script type="text/template">
+
+# Bệnh Thalassemia
+
+## 1. ĐẠI CƯƠNG
+### 1.1. Định nghĩa
+- Bệnh **hemoglobin** di truyền do<br>**thiếu hụt tổng hợp chuỗi globin**
+- Bệnh di truyền **đơn gen** phổ biến nhất thế giới
+- Thalassemia = bệnh **giảm số lượng**<br>chuỗi globin sản xuất
+- Bệnh hemoglobin = **thay đổi chất lượng**<br>(cấu trúc) chuỗi globin
+### 1.2. Dịch tễ
+- Tần suất **cao** ở vùng sốt rét lưu hành:<br>Địa Trung Hải, Trung Đông, Ấn Độ,<br>Đông Nam Á
+- **Lý thuyết sốt rét**: người mang gen thal<br>có kháng sốt rét tốt hơn<br>→ lợi thế chọn lọc tự nhiên
+- **Việt Nam**: phổ biến ở miền núi phía Bắc,<br>Trung du, Tây Nguyên, đồng bào dân tộc
+- Miền Nam: tần suất **mang gen** (~5%),<br>chủ yếu HbE/β-thalassemia
+- **Hệ quả**: hôn nhân cận huyết,<br>thiếu tư vấn di truyền → tỉ lệ bệnh cao
+
+## 2. CẤU TRÚC HEMOGLOBIN
+### 2.1. Thành phần
+- Hemoglobin = **Globin** + **Heme**
+- Heme = sắt (Fe²⁺) + Protoporphyrin IX
+- Globin: chuỗi polypeptide,<br>mỗi phân tử Hb có **4 chuỗi globin**
+### 2.2. Các loại chuỗi globin
+- Chuỗi **α** (alpha): 141 acid amin,<br>gen trên NST **16** (2 gen mỗi NST = **4 gen α**)
+- Chuỗi **β** (beta): 146 acid amin,<br>gen trên NST **11** (1 gen mỗi NST = **2 gen β**)
+- Chuỗi **γ** (gamma), **δ** (delta),<br>**ε** (epsilon), **ζ** (zeta)
+### 2.3. Hemoglobin theo giai đoạn phát triển
+#### Giai đoạn phôi (< 8 tuần)
+- Hb Gower 1: **ζ2 ε2**
+- Hb Gower 2: **α2 ε2**
+- Hb Portland: **ζ2 γ2**
+#### Giai đoạn thai
+- **HbF** (Hb thai): **α2 γ2**<br>(chiếm chủ yếu, 60-90%)
+- HbF có **ái lực O2 cao** hơn HbA
+#### Giai đoạn sau sinh / Người lớn
+- **HbA** (α2 β2): chiếm **96-98%**
+- **HbA2** (α2 δ2): chiếm **2-3,5%**
+- **HbF** (α2 γ2): chiếm **< 1%**<br>(giảm dần sau sinh, còn < 1% lúc 2 tuổi)
+
+## 3. DI TRUYỀN & PHÂN LOẠI
+### 3.1. Phân loại theo gen bị đột biến
+#### β-Thalassemia
+- Gen β trên NST 11 bị **đột biến điểm**
+- **β⁰-thal**: mất hoàn toàn<br>khả năng tổng hợp chuỗi β
+- **β⁺-thal**: giảm sản xuất chuỗi β
+- **Silent β⁰**: thể im lặng
+#### α-Thalassemia
+- Gen α trên NST 16 bị **xóa mất đoạn**
+- **α⁰-thal** (--/αα): mất 2 gen cùng NST
+- **α⁺-thal** (-α/αα): mất 1 gen
+- Deletion (-α) vs Non-deletion (αT)
+#### δβ-Thalassemia
+- (δβ)0-thal, (δβ)+-thal Lepore
+#### γ-Thalassemia
+- (γA γG)/A: rất hiếm
+### 3.2. Bệnh Hemoglobin (Hemoglobinopathy)
+- Thay đổi **1 acid amin** trên chuỗi globin
+- **HbS**: α2 β2 (6glu→val) → bệnh hồng cầu liềm
+- **HbC**: α2 β2 (6glu→lys)
+- **HbE**: α2 β2 (26glu→lys)<br>→ phổ biến nhất Đông Nam Á
+- Hb Ottawa, Hb Anantharaj: đột biến chuỗi α
+### 3.3. Tăng chiều dài chuỗi
+- **Hb Constant Spring**: α2 = 141 + 31 = **172** + β2
+### 3.4. Bệnh thalassemic hemoglobinopathy
+- Phối hợp thalassemia + hemoglobin bất thường<br>VD: **HbE/β-thalassemia**
+
+## 4. ĐẶC ĐIỂM DI TRUYỀN PHỔ BIẾN
+### 4.1. β-Thalassemia
+- Di truyền **Mendel**, thể **lặn**
+- Dị hợp tử (1 gen đột biến):<br>**healthy carrier** / thal trait<br>→ thường không triệu chứng
+- Đồng hợp tử (2 gen đột biến):<br>→ biểu hiện **lâm sàng**
+#### Hội chứng β-thalassemia
+- **Thể nặng** (β-TM / Cooley):<br>β⁰/β⁰ hoặc β0 dị hợp tử HbE<br>→ cần truyền máu để duy trì sự sống
+- **Thể trung gian**: β⁺/β⁺ đồng hợp tử<br>→ ít nặng hơn, không cần truyền máu<br>thường xuyên trong giai đoạn trẻ em
+#### Người lành mang bệnh (carrier)
+- Mang đột biến **1 gen β**
+- Thường không biểu hiện lâm sàng<br>ngoại trừ hồng cầu nhỏ, nhược sắc
+#### Phân loại β-thalassemia
+- **Nặng** (β0-Thal): β0/β0, β+/β0,<br>E/β0
+- **Trung gian/nặng** (β+-Thal nặng):<br>β+/β+
+- **Trait**: β0/A, β+/A
+- **Im lặng** (Silent): β+/β+: β+/A
+### 4.2. α-Thalassemia
+- Đột biến kiểu **xóa mất đoạn gen**
+- 4 gen tạo chuỗi α, mất càng nhiều<br>→ bệnh càng nặng
+- **Mất 1 gen** (-α/αα): carrier, im lặng
+- **Mất 2 gen** (--/αα hoặc -α/-α):<br>α-Thal trait → HC nhỏ, nhược sắc nhẹ
+- **Mất 3 gen** (--/-α): **Hb H** (β4)<br>→ thiếu máu tán huyết trung bình
+- **Mất 4 gen** (--/--): **Hb Bart's** (γ4)<br>→ phù nhau thai, thai thường **tử vong**
+
+## 5. SINH LÝ BỆNH
+### 5.1. β-Thalassemia
+- Giảm chuỗi β → dư thừa chuỗi α
+- Chuỗi α dư tủa trong **thể ẩn** hồng cầu
+- Hồng cầu non bị **phá hủy sớm** tại tủy xương<br>→ tạo máu không hiệu quả
+- Tủy phản ứng bằng **tăng sản xuất HC**
+- Thiếu máu → **giảm hepcidin**<br>→ tăng hấp thu sắt từ đường tiêu hóa
+- HC giảm kích thước nhỏ,<br>Hb giảm → **nhược sắc**
+- β⁰-thal nặng: không sản xuất HbA1<br>→ tăng kết nối chuỗi γ → **HbF tăng cao**
+- β-thal trait: HbA2 (α2δ2) thay đổi nhẹ
+- Biểu hiện sau **6 tháng tuổi**<br>(khi HbA1 thay thế HbF)
+### 5.2. α-Thalassemia
+- Mất 4 gen α (--/--): **Hb Bart** (γ4)
+- Giai đoạn phôi: thiếu α → chuỗi γ kết<br>hợp với ζ → **Hb Portland** (ζ2γ2)
+- Giai đoạn thai: **Hb Bart** (γ4) hình thành
+- Hb Bart có **ái lực O2 rất cao**<br>→ không cung cấp O2 cho mô
+- Thai thiếu máu nặng → suy tim,<br>phù toàn thân → **phù nhau thai**
+- Mẹ bị biến chứng: đa ối, cao huyết áp
+- **Hb H** (--/-α): tỉ lệ α/β = 0,3-0,6
+- Sau sinh chuỗi β thành lập<br>nhiều hơn → Hb H (β4)
+- Hb H lắng đọng → **thể vùi trong HC**<br>→ HC già bị bắt giữ ở lách
+- Heme + β4 → **hemichromes**<br>→ ROS → tổn thương màng
+### 5.3. HbE/β-Thalassemia
+- Kết hợp 1 gen HbE + 1 gen β-thal
+- Tùy mức giảm sản xuất chuỗi β<br>→ nhẹ đến nặng
+- **Thể nặng**: Hb 4-5 g/dL, cần truyền máu
+- **Thể trung bình**: Hb 6-7 g/dL
+- **Thể nhẹ**: Hb 9-12 g/dL
+### 5.4. HPFH (Hereditary Persistent Fetal Hb)
+- HbF sau sinh **không giảm** như bình thường
+- Tăng HbF **mắc phải**: ghép tủy, suy tủy,<br>loạn sinh tủy, juvenile chronic myeloid leukemia
+- Tăng HbF **di truyền**: δβ-thal, HPFH,<br>β-thalassemia
+- HPFH thể trait: HbF 5-35%
+- δβ-thal trait: MCH, MCV giảm,<br>HbF 5-18%
+
+## 6. CHẨN ĐOÁN
+### 6.1. Chẩn đoán TDT (Thalassemia phụ thuộc truyền máu)
+#### 6.1.1. Triệu chứng sớm
+- Thiếu máu tán huyết: xuất hiện **6-24 tháng**<br>(có thể từ 3 tháng tuổi)
+- Da niêm nhạt, vàng da, **tiểu vàng sậm**
+- **Gan lách to**: do tán huyết<br>và tăng tạo máu ngoài tủy
+- **Sạm da nhẹ**: quanh môi,<br>móng, nếp gấp chi
+#### 6.1.2. Triệu chứng muộn (biến chứng ứ sắt)
+- **Biến dạng xương** đầu, mặt, chi:<br>u trán, chẩm, xương hàm nhô ra,<br>sống mũi dẹt, răng mọc không đều,<br>dễ gãy xương
+- **Xương sọ hình bàn chải**<br>(thalassemia thể nặng)
+- **Sạm da toàn thể** do ứ sắt
+- **Chậm phát triển** chiều cao, cân nặng<br>không dấu hiệu dậy thì,<br>tiểu đường, suy giáp
+- **Tim**: cơ tim phì đại, rối loạn nhịp,<br>suy tim, có thể tử vong
+- **Đau nhức mạn tính**: lưng, chân, đầu
+#### 6.1.3. Xét nghiệm
+##### Huyết học
+- Hb **< 5 g/dL**, MCV: 50-70 fL,<br>MCH: 12-20 pg
+- Thiếu máu rất nặng: Hb **< 3 g/dL**
+- Phết máu: HC nhỏ, nhược sắc,<br>HC bia (target cells),<br>anisopoikilocytosis,<br>HC đa sắc, **HC nhân**
+- HC lưới tăng (0-2%), tuyệt đối:<br>20-100×10⁹/L
+##### Sinh hóa
+- Bilirubin gián tiếp **tăng**,<br>bilirubin trực tiếp không tăng
+- Ferritin máu tăng **> 300 μg/L**
+- Ứ sắt: ferritin **500-1.000 μg/L**
+##### X-quang
+- Loãng xương toàn bộ,<br>vỏ xương mỏng, dễ gãy
+- **Xương sọ hình bàn chải**
+- Tạo máu ngoài tủy xương:<br>khối u vùng lưng chậu
+##### Sinh học phân tử
+- Xác định **di truyền bệnh**
+#### 6.1.4. Chẩn đoán xác định TDT
+##### Lâm sàng
+- Thiếu máu nặng, vàng da,<br>gan lách to, xuất hiện sớm **trước 2 tuổi**
+##### Xét nghiệm
+- Hb **≤ 5 g/dL**, MCV < 80 fL,<br>MCH < 27 pg
+- Phết máu: HC nhỏ, nhược sắc,<br>HC bia, **thể ẩn trong HC**
+- HC lưới tăng **5-10%**
+- Ferritin tăng
+##### Điện di Hb (TDT)
+- β-thal nặng: HbF **↑100%**, HbA2↑ > 2%
+- HbE/β-thal nặng: HbE 40-60%,<br>HbF 60-40%, HbA2↑ > 2%
+- α-thal mất 2 gen + Constant Spring:<br>Hb Bart's cao (20-40%),<br>HbH 5-30% và Hb Constant Spring
+##### Phân tích DNA
+- PCR: xác định đột biến β⁰ và β⁺<br>thường gặp
+- Giải trình tự gen: đột biến hiếm
+- Gap-PCR: tìm 7 đột biến<br>mất đoạn α-thal thường gặp
+### 6.2. Chẩn đoán NTDT
+#### Lâm sàng
+- Thiếu máu tán huyết từ **sau 4-5 tuổi**,<br>diễn tiến từ từ
+#### Xét nghiệm
+- Hb **≥ 7-10 g/dL**
+- Ferritin bình thường hoặc tăng<br>(> 12 μg/L)
+#### Điện di Hb (NTDT)
+- β-thal trung gian: HbF 10-50%,<br>HbA2 > 4%
+- HbE/β-thal nhẹ, trung bình:<br>HbE 40-60%, HbF 60-40%<br>± HbA1 (+), HbA2↑
+- Hb H mất 3 gen: Hb Bart's 20-40%,<br>HbH 5-30%
+### 6.3. Chẩn đoán phân biệt
+#### Tán huyết di truyền
+- **Hồng cầu hình cầu**: tiền sử gia đình,<br>Coomb trực tiếp âm, MCHC↑,<br>sức bền HC giảm
+- **Thiếu men G6PD**: vàng da sơ sinh,<br>Coomb âm, HC kích thước bình thường,<br>có thể Heinz → đo G6PD gián tiếp
+#### Bệnh lý HC nhỏ nhược sắc
+##### Thiếu máu thiếu sắt
+- Hb↓, MCV↓ < 80 fL, MCH↓ < 27 pg,<br>**RDW↑ > 16,5%**
+- Ferritin **< 12 μg/L**
+- Điện di Hb: **bình thường**<br>(HbA1 ≥ 95%, HbA2 ≤ 3,5%)
+- Đáp ứng bổ sung sắt: Hb ↑ > 1 g/dL<br>sau **2-4 tuần**
+##### Thalassemia trait
+- Da nhợt nhẹ, **không đáp ứng** bổ sung sắt
+- Hb: 9-12 g/dL
+- MCV < 80 fL, MCH < 28 pg
+- Ferritin **> 12 μg/L**
+- β-Thal trait: HbA2 **≥ 3,5%**, HbF 0,1-7%
+- α-Thal trait: HbA2 **≤ 3,5%**, HbF < 1%
+##### HPFH
+- HbF tỉ lệ cao, **không thiếu máu**,<br>HC bình thường, HbF 5-35%
+
+## 7. PHÂN LOẠI THEO ĐỘ NẶNG
+### 7.1. TDT (Transfusion Dependent)
+- Cần truyền máu **đều đặn** để duy trì sự sống
+- Gồm: β-TM nặng, HbE/β-thal nặng,<br>Hb H, Hb Constant Spring nặng
+- Tiêu chuẩn TDT:<br>+ ≥ 6 đơn vị HC trong 6 tháng<br>(khoảng cách ≤ 6 tuần)<br>+ Hoặc nhận truyền máu định kỳ<br>trong 1-3 năm
+### 7.2. NTDT (Non-Transfusion Dependent)
+- Triệu chứng nhẹ, trung bình
+- Bắt đầu từ **4-6 tuổi**
+- Không lệ thuộc truyền máu định kỳ
+- Gồm: β-thal trung gian,<br>HbE/β-thal nhẹ, Hb H
+
+## 8. ĐIỀU TRỊ TDT
+### 8.1. Truyền máu
+#### Mục tiêu
+- Phác đồ truyền máu **an toàn, hiệu quả**
+- Phát triển và tăng trưởng tốt
+- Duy trì mức năng lượng tốt
+- **Ức chế** tạo HC trong và ngoài<br>tủy xương quá mức
+#### Chỉ định truyền máu lần đầu
+- Hb **< 7 g/dL** (thử 2 lần,<br>cách trên 2 tuần, loại trừ nhiễm trùng)
+- Hb > 7 g/dL VÀ có:<br>+ Triệu chứng nặng thiếu máu<br>+ Chậm tăng trưởng<br>+ Biến chứng tạo HC quá mức<br>(biến dạng xương, gãy xương)<br>+ Gan to, lách to
+#### Quy chế an toàn truyền máu
+- Kiểm tra nhóm máu **ABO, Rh**<br>(C, c, D, E, e) và **Kell**
+- Phản ứng chéo, sàng lọc kháng thể
+- Truyền HC lắng lọc bớt bạch cầu
+- HC rửa cho bệnh nhân dị ứng nặng
+#### Khoảng cách truyền máu
+- Truyền cách **2-5 tuần**
+- Duy trì Hb trước truyền:<br>**≥ 9-10,5 g/dL**
+- Mục tiêu: Hb **11 g/dL** (< 5 tuổi),<br>Hb **13 g/dL** (tuổi dậy thì)
+- Công thức: V(mL) = (Hb cần đạt - Hb BN)<br>× cân nặng × 0,3 / hematocrit túi máu
+### 8.2. Thải sắt
+#### Sinh lý bệnh ứ sắt
+- TDT ứ sắt do: truyền máu nhiều<br>+ tăng hấp thu sắt ở ruột
+- Sắt dư → vượt kết hợp transferrin<br>→ **NTBI** (sắt tự do)<br>→ tổn thương mô
+- NTBI hấp thu nhanh vào **tim, gan,<br>tuyến nội tiết**
+- Cơ quan bị tổn thương sớm:<br>**tim, gan, nội tiết**
+#### Chỉ định thải sắt lần đầu
+- Sau truyền máu **10-12 lần**
+- Ferritin huyết thanh > **1.000 μg/L**<br>(2 lần liên tiếp cách 2 tuần)
+- Trên **2 tuổi**
+#### Thuốc thải sắt
+##### DFO (Deferoxamine)
+- **Lựa chọn hàng đầu**, trẻ ≥ 2 tuổi
+- Tiêm dưới da mỗi ngày
+- Liều: **20-40 mg/kg**, 5-7 ngày/tuần
+- Thời gian bán hủy: **20-30 phút**
+- Chuyển hóa qua gan
+- Đào thải qua **nước tiểu và phân**
+- CChỈ định: quá mẫn,<br>bệnh thận nặng/vô niệu
+- Theo dõi: thính lực, thị giác,<br>chức năng thận
+- **Nguy cơ** nhiễm Yersinia, Klebsiella
+##### DFP (Deferiprone)
+- Uống **3 lần/ngày**
+- Liều: 75-100 mg/kg/ngày (Mỹ)<br>75-100 mg/kg/ngày (châu Âu),<br>chia 3 lần
+- Thời gian bán hủy: **3-4 giờ**
+- Đào thải qua **nước tiểu**
+- CChỈ định: tiền sử mất bạch cầu,<br>giảm bạch cầu trung tính, quá mẫn
+- Theo dõi: **bạch cầu hạt** hàng tuần/tháng,<br>chức năng gan
+##### DFX (Deferasirox)
+- Uống **1 lần/ngày**
+- Liều: 14-28 mg/kg/ngày (viên)<br>20-40 mg/kg/ngày (viên hòa tan)
+- Thời gian bán hủy: **12-16 giờ**
+- > 90% chuyển hóa qua gan
+- Đào thải qua **phân**
+- CChỈ định: quá mẫn,<br>GFR < 40 mL/phút/1,73m²,<br>tiểu cầu < 50×10⁹/L,<br>suy gan nặng Child-Pugh C
+- Theo dõi: **chức năng thận, gan**,<br>đạm niệu, toan hóa ống thận
+
+## 9. THEO DÕI BIẾN CHỨNG
+### 9.1. Tim mạch
+- Triệu chứng suy tim: khó thở,<br>phổi có ran, tĩnh mạch cổ nổi
+- Kiểm tra: ECG, siêu âm tim,<br>**CMR** (cardiac magnetic resonance)
+- Cao áp phổi: siêu âm tim **2 lần/năm**
+### 9.2. Tổn thương gan
+- Ứ sắt, nhiễm trùng, tắc mật,<br>sỏi mật, tăng áp lực TM cửa
+- Tầm soát: **mỗi 6 tháng**<br>men gan, α-fetoprotein, siêu âm
+### 9.3. Lách
+#### Chỉ định cắt lách
+- Tăng nhu cầu truyền máu dù đã<br>truyền đủ + thải sắt đầy đủ
+- Truyền HC nguyên chất > **200 mL/kg/năm**
+- Cường lách: giảm ba dòng
+- Lách to > **20 cm**, nguy cơ vỡ lách
+#### Phòng ngừa sau cắt lách
+- **Huyết khối**: aspirin khi<br>tiểu cầu > 1.000×10⁹/L
+- **Nhiễm trùng**: tiêm ngừa<br>Streptococcus pneumonia,<br>H. influenzae type B,<br>N. meningitidis, Influenzae<br>(ít nhất **2 tuần** trước cắt lách)
+- Kháng sinh penicillin dự phòng
+### 9.4. Nhiễm trùng
+- Nhiễm trùng liên quan **truyền máu**
+- **OPSI** (sau cắt lách):<br>sốt, run, tiêu chảy, đau đầu<br>→ sốc nhiễm trùng → tử vong nhanh
+- Nhiễm trùng liên quan **DFO**<br>(siderophoric iron chelator)
+### 9.5. Nội tiết
+- Biến chứng **thường gặp nhất** TDT
+- Chậm tăng trưởng, chậm dậy thì,<br>suy sinh dục, suy giáp, tiểu đường
+- Sàng lọc nội tiết: bắt đầu **9 tuổi**<br>hoặc sau 3 năm truyền máu
+- Phòng ngừa:<br>+ Truyền máu duy trì Hb > **9 g/dL**<br>+ Thải sắt: ferritin < **1.000 μg/L**<br>+ Dinh dưỡng phù hợp
+
+## 10. DINH DƯỠNG
+- **Kẽm**: 125 mg, 1-3 lần/ngày<br>(trẻ 10-13 tuổi, người thải sắt DFP)
+- **Calci & Vitamin D**: 2.000 IU/ngày<br>cho tất cả bệnh nhân
+- **Acid folic**: 1 mg/ngày
+- **Vitamin E**: bổ sung qua thực phẩm
+- **Sắt**: hạn chế sắt qua thức ăn,<br>dùng trà để giảm hấp thu sắt
+- **Vitamin C**: 2-3 mg/kg<br>(chỉ dùng khi thải sắt bằng DFO,<br>vì vitamin C tăng hấp thu sắt)
+
+## 11. PHÒNG BỆNH
+### 11.1. Đối tượng mắc bệnh
+- Cấp phiếu chứng nhận bệnh
+- Tư vấn cha mẹ về di truyền,<br>phòng bệnh, tái khám định kỳ
+### 11.2. Gia đình
+- Kiểm tra huyết đồ, **điện di Hb**<br>các thành viên gia đình
+- Tư vấn **tiền hôn nhân**,<br>chẩn đoán tiền sinh
+### 11.3. Cộng đồng (TIF & WHO)
+- Tăng cường hiểu biết cộng đồng
+- Đẩy mạnh hợp tác quốc tế
+- Chuẩn hóa phác đồ phòng/quản lý bệnh
+- **Ngày Quốc tế Thalassemia**:<br>8 tháng 5 hằng năm
+
+## 12. KHUYẾN CÁO Y HỌC CHỨNG CỨ
+- Chẩn đoán thal cần xem xét ở **tất cả**<br>người bị thiếu máu HC nhỏ nhược sắc **(C, I)**
+- Loại trừ thiếu máu thiếu sắt<br>trước khi chẩn đoán thal **(C, I)**
+- **Phân tích phân tử** không bắt buộc<br>cho β-thal, nhưng cần cho α-thal **(C, I)**
+- Chỉ số huyết học + hình thái HC<br>+ điện di Hb: cơ sở xác định<br>người mang gen β-thal **(C, I)**
+- PCR: phát hiện đột biến phổ biến<br>ban đầu **(C, IIa)**
+- Ferritin huyết thanh **mỗi 3 tháng** **(B, I)**
+- MRI gan/tim (LIC, mT2*)<br>hằng năm từ **8-10 tuổi** **(B, IIa)**
+- Liệu pháp thải sắt **cải thiện tỷ lệ sống**,<br>giảm nguy cơ suy tim **(C, I)**
+- Phòng ngừa tích lũy sắt bằng thải sắt<br>**ưu tiên hơn** điều trị cứu hộ **(B, I)**
+- Theo dõi chặt chẽ **tác dụng phụ**<br>thuốc thải sắt **(A, I)**
+
+    
+</script>
+</div>
+<script>
+function foldNode(n,f){if(n.children&&n.children.length){n.payload=n.payload||{};n.payload.fold=f;n.children.forEach(c=>foldNode(c,f));}}
+function collapseAll(){const mm=window._getMM();if(!mm)return;const r=mm.state.data;if(r&&r.children){r.children.forEach(c=>foldNode(c,1));mm.setData(r);setTimeout(()=>mm.fit(),300);}}
+function expandAll(){const mm=window._getMM();if(!mm)return;foldNode(mm.state.data,0);mm.setData(mm.state.data);setTimeout(()=>mm.fit(),300);}
+function fitView(){const mm=window._getMM();if(mm)mm.fit();}
+</script>
+</body>
+</html>

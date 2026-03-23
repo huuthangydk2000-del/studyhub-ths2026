@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Sơ đồ kiến thức: Sinh lý hồng cầu và Nhóm máu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    <script>
+    (function () {
+        let _orig = null, _mm = null;
+        Object.defineProperty(window, 'markmap', {
+            configurable: true,
+            get() { return _orig; },
+            set(val) {
+                _orig = val;
+                if (val && val.Markmap && !val.Markmap.__patched) {
+                    const origCreate = val.Markmap.create;
+                    val.Markmap.create = function (svg, opts, data) {
+                        opts = opts || {};
+                        opts.scrollForPan = false;
+                        const mm = origCreate.call(val.Markmap, svg, opts, data);
+                        _mm = mm; return mm;
+                    };
+                    val.Markmap.__patched = true;
+                }
+            }
+        });
+        window._getMM = () => _mm;
+    })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17.0"></script>
+    <style>
+        :root {
+            --primary: #dc2626;
+            --bg: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.85);
+            --border: rgba(0, 0, 0, 0.05);
+        }
+        body { margin: 0; padding: 0; min-height: 100vh; display: flex; flex-direction: column; font-family: 'Inter', sans-serif; background: var(--bg); color: #0f172a; }
+        .header { 
+            padding: 24px; text-align: center; 
+            background: var(--glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100;
+        }
+        .markmap { flex-grow: 1; width: 100%; height: 80vh; padding: 20px; box-sizing: border-box; }
+        h2 { margin: 0; font-family: 'Outfit', sans-serif; font-size: 1.5rem; color: var(--primary); letter-spacing: -0.02em; }
+        p { font-size: 0.85rem; color: #64748b; margin-top: 4px; }
+        .toolbar { display:flex; gap:10px; justify-content:center; margin-top:16px; }
+        .tool-btn { 
+            padding: 8px 16px; border-radius: 10px; border: 1px solid #e2e8f0; 
+            background: #fff; color: #475569; font-size: 13px; font-weight: 600; 
+            cursor: pointer; transition: all 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .tool-btn:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-1px); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>🔴 Sinh lý hồng cầu và Nhóm máu</h2>
+        <p>Phóng to/Thu nhỏ bằng con lăn. Kéo để di chuyển. Click chấm tròn để thu gọn nhánh.</p>
+        <div class="toolbar">
+            <button class="tool-btn" onclick="collapseAll()">➖ Thu gọn tất cả</button>
+            <button class="tool-btn" onclick="expandAll()">➕ Mở rộng tất cả</button>
+            <button class="tool-btn" onclick="fitView()">🎯 Căn giữa</button>
+        </div>
+    </div>
+    <div class="markmap">
+<script type="text/template">
+# Sinh lý hồng cầu và Nhóm máu
+
+## I. SINH LÝ HỒNG CẦU
+
+### 1. Hình thể, cấu tạo và số lượng
+- **Hình thể**: không nhân, hình dĩa, lõm hai mặt.<br>*“là những tế bào không nhân, hình dĩa, lõm hai mặt”*
+    - Đường kính: **7 – 8 µm**.
+    - Chiều dày: Trung tâm 1 µm, Ngoại vi 2 – 3 µm.
+    - Cơ chế khuếch tán: Hình dĩa lõm -> tăng diện tích tiếp xúc **30%** -> tăng tốc độ khuếch tán khí.
+    - Cơ chế di chuyển: Hình dĩa lõm -> biến dạng dễ dàng khi qua mao mạch nhỏ.
+- **Thành phần (Màng 3 lớp)**:
+    - Lớp ngoài: Glycoprotein, lỗ nhỏ (3-4 Angstrom).
+    - Cơ chế chống dính: Acid sialic (-) ở ngoài -> các hồng cầu đẩy nhau -> không dính nhau.
+        - *“Màng hồng cầu đưa ra ngoài các phân tử acid sialic tích điện âm, vì vậy, các hồng cầu không dính vào nhau.”*
+    - Lớp lipid: Giữ hình dạng. 65% Phospholipid, 25% Cholesterol.
+    - Lớp trong: Calmodulin điều hòa enzyme màng.
+- **Tính thấm**: Thấm H+, OH-, HCO3-; Ít thấm K+, Na+, Ca++; Không thấm Protein, Mg++.
+- **Sức bền**: Tối thiểu NaCl **4,6%**, Tối đa **3,4%**.
+    - Cơ chế TM: Nhiều CO2, Clo -> HC trương to -> màng dễ vỡ hơn động mạch.
+- **Số lượng (Người VN)**:
+    - Nam: **4.200.000 ± 210.000/mm³** (Hct 44% ± 3%).
+    - Nữ: **3.800.000 ± 160.000/mm³** (Hct 41% ± 3%).
+- **Điều hòa sản xuất**:
+    - Cơ chế Epo: Giảm oxy máu -> kích thận/gan tiết Epo -> kích tủy xương -> Tăng sản xuất HC -> Tăng O2.
+        - *“erythropoietin tác động lên tủy xương, làm tủy xương tăng sản xuất hồng cầu.”*
+
+### 2. Chức năng hồng cầu
+- **Hô hấp (Chính)**: Vận chuyển O2 và CO2 nhờ **Hemoglobin (Hb)**.
+    - **Oxy**: $Hb + O2 \rightleftharpoons HbO2$. Gắn O2 vào Fe++ (không phải oxy hóa).
+    - Ái lực nhả O2: Nhiệt độ ↑, pH ↓, CO2 ↑, 2,3-DPG ↑ -> Giảm ái lực -> Nhả O2 cho mô.
+    - **Carbon Monoxid**: Hb gắn CO (ái lực gấp **210 lần** O2) -> $HbCO$ bền vững -> Ngạt bên trong.
+    - **Thoái biến Hb**: HC già vỡ -> Hb tách Globin & Hem.
+        - Cơ chế Hem: Hem -> tách Fe (về tủy/gan) -> Bilirubin -> Gan (kết hợp acid glycuronic) -> Mật -> Ruột.
+- **Miễn dịch**: Bám phức hợp Ag-Ab-C -> Thúc đẩy thực bào. Giao nộp Ag cho lympho T.
+- **Đệm**: Nhân Imidazol của Histidin (globin) chiếm **70%** tác dụng đệm máu toàn phần.
+- **Áp suất keo**: Do protein hồng cầu (Hb) tạo ra.
+
+## II. HỆ THỐNG NHÓM MÁU
+
+### 1. Hệ ABO
+- **Kháng nguyên (Ag)**: A, B trên màng HC. Xuất hiện sớm từ bào thai.
+- **Kháng thể (Ab)**: 
+    - Tự nhiên (IgM): Không qua nhau thai. Hằng định.
+    - Miễn dịch (IgG): Hình thành sau tiếp xúc Ag lạ. **Qua được nhau thai**, vỡ HC mạnh.
+        - Cơ chế mẹ O con A/B: HC thai qua mẹ -> Mẹ tạo IgG Anti-A/B -> Qua nhau thai vào con.
+- **Định nhóm**: Phải làm cả Beth-Vincent (tìm Ag) và Simonin (tìm Ab).
+
+### 2. Hệ Rhesus (Rh)
+- **Yếu tố D** mang tính kháng nguyên mạnh nhất. 99,92% người Việt là Rh+.
+- **Tai biến Rh**: Mẹ Rh- mang thai con Rh+ (lần 2) -> Mẹ đã nhạy cảm -> IgG Anti-D qua nhau thai -> Tiêu huyết sơ sinh.
+
+### 3. Truyền máu
+- **Nguyên tắc**: Ag người cho không bị ngưng kết bởi Ab người nhận.
+- **Phản ứng chéo**: (1) Chính: HC Cho + HT Nhận; (2) Phụ: HC Nhận + HT Cho.
+
+## III. RỐI LOẠN LÂM SÀNG
+- **Thiếu máu**: Hb < 13g/dL (nam), < 12g/dL (nữ).
+- **Chỉ số**: MCV (88±4 fl), MCH (30±2 pg), MCHC (33,9±1,7 g/dL).
+- **Cơ chế thiếu sắt**: Mất máu/giun móc -> Giảm Hb -> Tủy xương giải phóng HC nhỏ, nhược sắc.
+- **Đa hồng cầu**: Thứ phát (do thiếu oxy mô -> Epo ↑) hoặc nguyên phát (Khối u tủy xương).
+</script>
+t sơ sinh (Mẹ Rh-, con Rh+ lần 2).
+
+### 3. Truyền máu
+- **Nguyên tắc**: Không để Ag người cho bị ngưng kết bởi Ab người nhận.
+    - O cho được tất cả; AB nhận được tất cả.
+- **Phản ứng chéo (Bắt buộc)**: 
+    - Phản ứng chính: HC người cho + HT người nhận.
+    - Phản ứng phụ: HC người nhận + HT người cho.
+
+## III. RỐI LOẠN LÂM SÀNG
+- **Thiếu máu**: Hb < 13g/dL (nam), < 12g/dL (nữ).
+- **Chỉ số**: MCV (thể tích), MCH (lượng Hb), MCHC (nồng độ Hb).
+- **Đa hồng cầu**: Thứ phát (do thiếu O2 mạn) hoặc nguyên phát (Bệnh Vaquez).
+</script>
+    </div>
+<script>
+function foldNode(n,f){if(n.children&&n.children.length){n.payload=n.payload||{};n.payload.fold=f;n.children.forEach(c=>foldNode(c,f));}}
+function collapseAll(){const mm=window._getMM();if(!mm)return;const r=mm.state.data;if(r&&r.children){r.children.forEach(c=>foldNode(c,1));mm.setData(r);setTimeout(()=>mm.fit(),300);}}
+function expandAll(){const mm=window._getMM();if(!mm)return;foldNode(mm.state.data,0);mm.setData(mm.state.data);setTimeout(()=>mm.fit(),300);}
+function fitView(){const mm=window._getMM();if(mm)mm.fit();}
+</script>
+</body>
+</html>

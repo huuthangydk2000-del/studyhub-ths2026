@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Sơ đồ kiến thức: 🚛 Vận Chuyển Khí</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    <script>
+    (function () {
+        let _orig = null, _mm = null;
+        Object.defineProperty(window, 'markmap', {
+            configurable: true,
+            get() { return _orig; },
+            set(val) {
+                _orig = val;
+                if (val && val.Markmap && !val.Markmap.__patched) {
+                    const origCreate = val.Markmap.create;
+                    val.Markmap.create = function (svg, opts, data) {
+                        opts = opts || {};
+                        opts.scrollForPan = false;
+                        const mm = origCreate.call(val.Markmap, svg, opts, data);
+                        _mm = mm; return mm;
+                    };
+                    val.Markmap.__patched = true;
+                }
+            }
+        });
+        window._getMM = () => _mm;
+    })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17.0"></script>
+    <style>
+        :root {
+            --primary: #dc2626;
+            --bg: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.85);
+            --border: rgba(0, 0, 0, 0.05);
+        }
+        body { margin: 0; padding: 0; min-height: 100vh; display: flex; flex-direction: column; font-family: 'Inter', sans-serif; background: var(--bg); color: #0f172a; }
+        .header { 
+            padding: 24px; text-align: center; 
+            background: var(--glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100;
+        }
+        .markmap { flex-grow: 1; width: 100%; height: 80vh; padding: 20px; box-sizing: border-box; }
+        h2 { margin: 0; font-family: 'Outfit', sans-serif; font-size: 1.5rem; color: var(--primary); letter-spacing: -0.02em; }
+        p { font-size: 0.85rem; color: #64748b; margin-top: 4px; }
+        .toolbar { display:flex; gap:10px; justify-content:center; margin-top:16px; }
+        .tool-btn { 
+            padding: 8px 16px; border-radius: 10px; border: 1px solid #e2e8f0; 
+            background: #fff; color: #475569; font-size: 13px; font-weight: 600; 
+            cursor: pointer; transition: all 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .tool-btn:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-1px); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h2>🚛 Vận Chuyển Khí</h2>
+        <p>Phóng to/Thu nhỏ bằng con lăn. Kéo để di chuyển. Click chấm tròn để thu gọn nhánh.</p>
+        <div class="toolbar">
+            <button class="tool-btn" onclick="collapseAll()">➖ Thu gọn tất cả</button>
+            <button class="tool-btn" onclick="expandAll()">➕ Mở rộng tất cả</button>
+            <button class="tool-btn" onclick="fitView()">🎯 Căn giữa</button>
+        </div>
+    </div>
+    <div class="markmap">
+<script type="text/template">
+# Bài 17. Chuyên chở khí trong máu
+TS.BS. Đặng Huỳnh Anh Thư
+
+## MỤC TIÊU HỌC TẬP
+1. Trình bày các dạng vận chuyển Oxy và Cacbonic trong máu.
+2. Giải thích ý nghĩa của đường cong Barcroft (phân ly Hb-O2).
+3. Phân tích các yếu tố làm lệch đường cong Barcroft (Nhiệt độ, pH, pCO2, 2,3-DPG).
+4. Phân tích hiệu quả Bohr và hiệu quả Haldane.
+
+## 1. VẬN CHUYỂN OXY (O2)
+Máu vận chuyển O2 dưới 2 dạng:
+
+### 1.1 Dạng hòa tan (1 - 3%)
+- Lượng rất ít nhưng là dạng trực tiếp tạo ra phân áp oxy ($PaO_2$) và khuếch tán vào mô.
+
+### 1.2 Dạng kết hợp Hemoglobin (97 - 99%)
+- $Hb + O_2 \rightleftharpoons HbO_2$ (Phản ứng thuận nghịch, lỏng lẻo).
+- Mỗi phân tử Hb gắn tối đa 4 O2. 1 gram Hb gắn được 1.34 ml O2.
+- **Đường cong Barcroft (Hình chữ S)**: 
+  - Đoạn dốc: Xảy ra ở mô, chỉ cần pO2 giảm ít thì Hb nhả O2 rất nhiều.
+  - Đoạn ngang: Xảy ra ở phổi, dù pO2 dao động nhưng Hb vẫn giữ mức bão hòa cao (>95%).
+
+### 1.3 Các yếu tố làm dịch chuyển đường cong
+- **Dịch PHẢI (Giảm ái lực - Tăng nhả O2 cho mô)**: Khi Tăng Nhiệt độ, Tăng pCO2, Giảm pH (Toan), Tăng 2,3-DPG.
+- **Dịch TRÁI (Tăng ái lực - Giữ O2 chặt hơn)**: Ngược lại với các yếu tố trên.
+- **Hiệu quả Bohr**: Tại mô, CO2 tăng làm tăng H+ $\to$ Đẩy đường cong sang phải $\to$ Hb nhả O2 cho mô dễ hơn.
+
+## 2. VẬN CHUYỂN CACBONIC (CO2)
+Máu vận chuyển CO2 dưới 3 dạng:
+
+### 2.1 Dạng hòa tan (7%)
+- CO2 tan tốt hơn O2 gấp 20 lần.
+
+### 2.2 Dạng kết hợp Protein (Carbamino - 23%)
+- CO2 gắn vào nhóm amin của globin (không gắn vào sắt).
+- **Hiệu quả Haldane**: Tại phổi, khi O2 gắn vào Hb $\to$ Hb trở nên acid hơn $\to$ Đẩy CO2 ra khỏi Hb nhanh hơn.
+
+### 2.3 Dạng muối Bicarbonate (70%) - Dạng chính
+- $CO_2 + H_2O \xrightarrow{CA} H_2CO_3 \to H^+ + HCO_3^-$.
+- Phản ứng xảy ra cực nhanh trong hồng cầu nhờ men **Carbonic Anhydrase (CA)**.
+- **Hiện tượng Chloride Shift (Hamburger)**: $HCO_3^-$ ra ngoài huyết tương để đổi lấy $Cl^-$ vào trong hồng cầu để giữ thăng bằng điện tích.
+
+## 3. VẬN CHUYỂN KHÍ TRONG CÁC TRƯỜNG HỢP ĐẶC BIỆT
+- **Ngộ độc khí CO**: CO có ái lực với Hb gấp 210-250 lần O2. CO chiếm vị trí của O2 và giữ chặt O2 còn lại (lệch trái) $\to$ Mô bị thiếu oxy cực nặng dù pO2 máu vẫn bình thường.
+- **HbF (Bào thai)**: Có ái lực với O2 cao hơn Hb người lớn, giúp lấy oxy từ máu mẹ dễ dàng hơn.
+- **2,3-DPG**: Tăng lên khi lên vùng cao hoặc thiếu oxy mạn tính để giúp Hb nhả O2 cho mô tốt hơn.
+
+</script>
+    </div>
+<script>
+function foldNode(n,f){if(n.children&&n.children.length){n.payload=n.payload||{};n.payload.fold=f;n.children.forEach(c=>foldNode(c,f));}}
+function collapseAll(){const mm=window._getMM();if(!mm)return;const r=mm.state.data;if(r&&r.children){r.children.forEach(c=>foldNode(c,1));mm.setData(r);setTimeout(()=>mm.fit(),300);}}
+function expandAll(){const mm=window._getMM();if(!mm)return;foldNode(mm.state.data,0);mm.setData(mm.state.data);setTimeout(()=>mm.fit(),300);}
+function fitView(){const mm=window._getMM();if(mm)mm.fit();}
+</script>
+</body>
+</html>
